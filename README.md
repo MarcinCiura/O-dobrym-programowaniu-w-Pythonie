@@ -68,7 +68,7 @@ pakietów i modułów należy uporządkować leksykograficznie
 ([punkt 2.5](https://google.github.io/styleguide/pyguide.html#25-global-variables)).
 Często da się ich pozbyć przez zmianę architektury
 kodu z proceduralnej na obiektową tak, żeby stały
-się atrybutami klasy.
+się atrybutami instancji klasy.
 
 * Globalne stałe na poziomie modułów są natomiast
 mile widziane, a nawet wymagane zamiast magicznych
@@ -116,6 +116,34 @@ osobnych plików na małe klasy w stylu
 `PrzechowywaczMonet` tylko po to, żeby później
 było trzeba pisać `import PrzechowywaczMonet` i
 `przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`.
+
+* Należy odróżniać atrybuty klasy, które są
+inicjalizowane tak:
+    ```python
+    class Spam:
+        ham = 42
+    ```
+od atrybutów instancji, które są inicjalizowane
+w konstruktorze:
+    ```python
+    class Spam:
+        def __init(self):
+            self.ham = 42
+    ```
+Te pierwsze mają wartość początkową nadawaną tylko raz
+i są wspólne dla wszystkich instancji klasy
+(można się do nich odwoływać przez `Spam.ham` lub
+`self.ham`), a te drugie są osobne w każdej instancji
+(`self.ham`). Jeśli atrybut klasy jest stałą,
+to wszystko jest w porządku. Natomiast jeśli atrybut
+klasy zmienia wartość w czasie działania programu,
+to prosimy się o kłopoty. Nawet gdy przewidujemy
+istnienie podczas działania programu tylko jednej
+instancji klasy (np. `Game`), to przy testowaniu
+zupełnie normalne jest tworzenie jedna po drugiej
+coraz nowszych instancji, a każda będzie bazgrać
+po jedynym egzemplarzu atrybutu. Dlatego stosowanie
+zmiennych atrybutów klas jest prawie zawsze błędem.
 
 * Koniec głównego modułu programu powinien się
 przedstawiać jak poniżej. Oczywiście nie wszystkie
