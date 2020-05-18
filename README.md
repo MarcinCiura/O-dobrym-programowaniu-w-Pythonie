@@ -119,6 +119,10 @@ opisujące działanie metody lub funkcji, np.
 Jeśli potrzebne jest dłuższe objaśnienie, należy
 je podać poniżej, po pustym wierszu.
 
+* Sklejanie napisów przez `+` jest nieładne.
+Ładne są za to f-stringi
+([punkt 3.10](https://google.github.io/styleguide/pyguide.html#310-strings)).
+
 * Wiersze programu nie powinny być za długie.
 Jeśli trzeba je połamać na krótsze kawałki,
 dobrze wiedzieć, że kawałki otoczone dowolnym
@@ -131,6 +135,10 @@ ze sobą łączą i wyglądają lepiej niż z `\` na końcach
 * Zamiast `r'spam\ham.png'`, co działa tylko pod Windows,
 lepiej pisać `'spam/ham.png'`, co działa również
 pod Windows.
+
+* Dłuższe ścieżki do plików dobrze skleja `os.path.join()`.
+Nie trzeba pamiętać, które kawałki ścieżki się kończą na '/',
+a które nie.
 
 * Python to nie Java. Zbyteczne jest tworzenie
 osobnych plików na małe klasy w stylu
