@@ -91,8 +91,24 @@ korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 `stylu_wężowym` (*`snake_case`*)
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 
+* Warto pamiętać, że czytelnik programu nie musi
+znać tych samych skrótów, co my. Wniosek 1: skróty
+są niedozwolone, zarówno w identyfikatorach,
+jak w docstringach i komentarzach
+([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
+Wniosek 2: tym bardziej niedozwolone są jednoliterowe
+nazwy zmiennych
+([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
+Wyjątki to `i`, `j`, `k` jako liczniki pętli
+oraz litery pasujące do typu elementów w wyrażeniach
+listowych, słownikowych, zbiorowych i generatorowych,
+czyli po naszemu *list/dict/set comprehensions*
+i *generator expressions* (często cholera wie,
+jaka litera pasuje, ale jeszcze nikomu
+nie stała się krzywda za użycie `x`).
+
 * Wymagane są docstringi do modułów, klas, metod
-i funkcji, chyba że są jednolinijkowe lub w inny
+i funkcji, chyba że są jednowierszowe lub w inny
 sposób oczywiste
 ([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 Należy się zapoznać z zasadami pisania docstringów
@@ -103,13 +119,18 @@ opisujące działanie metody lub funkcji, np.
 Jeśli potrzebne jest dłuższe objaśnienie, należy
 je podać poniżej, po pustym wierszu.
 
-* Warto pamiętać, że czytelnik programu nie musi
-znać tych samych skrótów, co my. Wniosek: skróty
-są niedozwolone, zarówno w identyfikatorach,
-jak w docstringach i komentarzach
-([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
+* Wiersze programu nie powinny być za długie.
+Jeśli trzeba je połamać na krótsze kawałki,
+dobrze wiedzieć, że kawałki otoczone dowolnym
+rodzajem nawiasów (`()`, `[]`, `{}`) same się
+ze sobą łączą i wyglądają lepiej niż z `\` na końcach
+([punkt 3.2](https://google.github.io/styleguide/pyguide.html#32-line-length)).
 
 ### 3. Inne uwagi
+
+* Zamiast `r'spam\ham.png'`, co działa tylko pod Windows,
+lepiej pisać `'spam/ham.png'`, co działa również
+pod Windows.
 
 * Python to nie Java. Zbyteczne jest tworzenie
 osobnych plików na małe klasy w stylu
@@ -127,7 +148,7 @@ od atrybutów instancji, które są inicjalizowane
 w konstruktorze:
 ```python
     class Spam:
-        def __init(self):
+        def __init__(self):
             self.ham = 42
 ```
 Te pierwsze mają wartość początkową nadawaną tylko raz
