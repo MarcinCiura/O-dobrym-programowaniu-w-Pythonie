@@ -119,12 +119,14 @@ było trzeba pisać `import PrzechowywaczMonet` i
 
 * Należy odróżniać atrybuty klasy, które są
 inicjalizowane tak:
+
     ```python
     class Spam:
         ham = 42
     ```
 od atrybutów instancji, które są inicjalizowane
 w konstruktorze:
+
     ```python
     class Spam:
         def __init(self):
