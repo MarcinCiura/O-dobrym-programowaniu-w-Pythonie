@@ -172,6 +172,13 @@ poniżej. Pełna dokumentacja modułu `unittest` znajduje się
         unittest.main()
     ```
 
+* Widok kolorów w stylu `(255, 0, 0)` przypomina mi czasy
+butelek z mlekiem za progiem mieszkania, magnetofonów kasetowych
+i 16-kolorowych trybów graficznych. Z 16.777.216 barw da się
+wybrać ciekawsze. Ja lubię paletę
+[Solarized](https://ethanschoonover.com/solarized/);
+jest też mnogość innych.
+
 ### 4. Rady wyższego poziomu
 
 * Dobry konstruktor poznaje się po tym, że tylko
