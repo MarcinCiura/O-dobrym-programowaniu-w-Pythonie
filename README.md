@@ -86,6 +86,11 @@ Nie od rzeczy będzie przypomnieć, że XXI wiek
 trwa już dość długo i w identyfikatorach można swobodnie
 korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 
+* Nazwy funkcji i zmiennych w `styluWielbłądzim`
+(*`camelCase`*) są niepytoniczne. Powinny być w
+`stylu_wężowym` (*`snake_case`*)
+([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
+
 * Wymagane są docstringi do modułów, klas, metod
 i funkcji, chyba że są jednolinijkowe lub w inny
 sposób oczywiste
