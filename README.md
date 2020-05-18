@@ -137,7 +137,7 @@ lepiej pisać `'spam/ham.png'`, co działa również
 pod Windows.
 
 * Dłuższe ścieżki do plików dobrze skleja `os.path.join()`.
-Nie trzeba pamiętać, które kawałki ścieżki się kończą na '/',
+Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
 a które nie.
 
 * Python to nie Java. Zbyteczne jest tworzenie
