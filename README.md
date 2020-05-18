@@ -1,5 +1,5 @@
 # Jak zaliczyć projekt z Pythona
-## Zalecenia dla studentów przedmiotu Języki Symboliczne
+## Poradnik dla studentów przedmiotu Języki Symboliczne
 
 Zamiast powtarzać podobne komentarze w wielu projektach,
 spisałem je tutaj. Uwagi do tego dokumentu można zgłaszać
@@ -9,10 +9,11 @@ przez *Issues*.
 
 * Repozytorium nie powinno zawierać zbędnych katalogów
 `__pycache__`, `.idea`, `venv` itp. ani zbędnych plików,
-np. `desktop.ini`. Wskazane jest za to dodanie pliku
-`.gitignore` o treści odpowiedniej dla projektów pisanych
-w Pythonie. Kto nie dodał tego pliku przy tworzeniu
-repozytorium,
+np. `desktop.ini`.
+
+* Wskazane jest za to dodanie pliku `.gitignore`
+o treści odpowiedniej dla projektów pisanych w Pythonie.
+Kto nie dodał tego pliku przy tworzeniu repozytorium,
 [tutaj](https://github.com/github/gitignore/blob/master/Python.gitignore)
 znajdzie odpowiednią treść.
 
@@ -33,12 +34,15 @@ bez uściślania ich wersji, np.
 ### 2. Uwagi drobiazgowe
 
 Proszę się zapoznać z treścią
-[poradnika dla programistów Pythona w firmie Google](https://google.github.io/styleguide/pyguide.html) i stosować do jego zaleceń.
-Nie wymagam tylko podawania w docstringach funkcji
-i metod sekcji `Args:`, `Returns:` i `Raises:`
-ani w docstringach klas sekcji `Attributes:`
-([punkty 3.8.3 i 3.8.4](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)). Najczęściej ignorowane zalecenia
-powtarzam poniżej.
+[poradnika dla programistów Pythona w firmie Google](https://google.github.io/styleguide/pyguide.html)
+i stosować do jego zasad. Nie wymagam tylko podawania
+w docstringach funkcji i metod sekcji `Args:`, `Returns:`
+i `Raises:` ani w docstringach klas sekcji `Attributes:`
+([punkty 3.8.3 i 3.8.4](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)).
+Nie obowiązują również zasady związane z Pythonem 2,
+czyli nie należy pisać `from __future__ import ...`,
+dziedziczyć z `object` ani korzystać z biblioteki `six`.
+Najczęściej ignorowane zasady powtarzam poniżej.
 
 * Proszę zainstalować narzędzie
 [`pylint`](https://pypi.org/project/pylint/),
@@ -70,40 +74,42 @@ się atrybutami klasy.
 mile widziane, a nawet wymagane zamiast magicznych
 liczb, napisów czy większych obiektów. Na przykład
 zamiast `7` należy zdefiniować stałą `BOARD_WIDTH = 7`,
-zamiast napisów `'left'` i `'right'` — stałe
-`LEFT, RIGHT = range(2)`, zamiast krotki `(65, 181, 137)`
-— stałą `BACKGROUND_COLOR = (65, 181, 137)`.
-Przypominam, że stałe zwyczajowo zapisujemy
+zamiast odróżniania kierunku przy użyciu zmiennej
+o wartości `'left'` albo `'right'` — zdefiniować
+stałe `LEFT, RIGHT = range(2)`, zamiast krotki
+`(65, 181, 137)` — stałą
+`BACKGROUND_COLOR = (65, 181, 137)`.
+Stałe zwyczajowo zapisujemy
 `WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 Nie od rzeczy będzie przypomnieć, że XXI wiek
-trwa już dość długo i w nazwach można swobodnie
+trwa już dość długo i w identyfikatorach można swobodnie
 korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 
 * Wymagane są docstringi do modułów, klas, metod
 i funkcji, chyba że są jednolinijkowe lub w inny
 sposób oczywiste
-([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)). Należy się
-zapoznać z zasadami pisania docstringów i ich
-przestrzegać. W skrócie: pierwszy wiersz ma zawierać
+([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
+Należy się zapoznać z zasadami pisania docstringów
+i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
 pełne a krótkie zdanie (na końcu zdania stawiamy kropkę)
 opisujące działanie metody lub funkcji, np.
 `"""Zwraca przycisk naciśnięty przez użytkownika."""`
-Jeśli wymagany jest dłuższy opis, należy go podać
-poniżej, po pustym wierszu.
+Jeśli potrzebne jest dłuższe objaśnienie, należy
+je podać poniżej, po pustym wierszu.
 
 * Warto pamiętać, że czytelnik programu nie musi
 znać tych samych skrótów, co my. Wniosek: skróty
-są niedozwolone, zarówno w nazwach, jak w docstringach
-i komentarzach
+są niedozwolone, zarówno w identyfikatorach,
+jak w docstringach i komentarzach
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
 
 ### 3. Inne uwagi
 
-* Python to nie Java. Niepotrzebne jest tworzenie
+* Python to nie Java. Zbyteczne jest tworzenie
 osobnych plików na małe klasy w stylu
 `PrzechowywaczMonet` tylko po to, żeby później
-musieć pisać `import PrzechowywaczMonet` i
+było trzeba pisać `import PrzechowywaczMonet` i
 `przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`.
 
 * Koniec głównego modułu programu powinien się
@@ -115,7 +121,7 @@ programie.
     def main():
         ... [inicjalizacja bibliotek zewnętrznych]
         ... [tworzenie obiektów odpowiednich klas]
-        ... [wywołanie funkcji/metody wprawiającej te obiekty w ruch]
+        ... [wywołanie funkcji lub metody wprawiającej te obiekty w ruch]
         ... [sprzątanie]
 
 
@@ -123,7 +129,7 @@ programie.
         main()
     ```
 
-* Dokładne testy do wszystkich klas/funkcji programu
+* Dokładne testy do wszystkich klas i funkcji programu
 nie są wymagane na zaliczenie, ale trochę testów — tak.
 Chodzi o to, żeby Państwo przećwiczyli ich pisanie.
 W plikach z testami wystarczy jeden docstring na początku
@@ -144,7 +150,7 @@ poniżej. Pełna dokumentacja modułu `unittest` znajduje się
     class HamTest(unittest.TestCase):
 
         def setUp(self):
-            self.ham = spam.ham(price=42)
+            self.ham = spam.Ham(price=42)
 
         def test_open(self):
             self.assertTrue(self.ham.open())
@@ -185,9 +191,8 @@ jest testować daną klasę.
     * dziwnych obejściach, nie korzystających z metody
       `__init__()` po to, żeby móc zwracać kod błędu.
 * Złe metody poznaje się po:
-    * niekorzystaniu ze swoich argumentów bezpośrednio,
-      tylko używaniu ich po to, żeby się dostać do innych
-      obiektów;
+    * korzystaniu ze swoich argumentów nie wprost,
+      tylko po to, żeby się dostać do innych obiektów;
     * naruszaniu
       [prawa Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
       czyli przechodzeniu przez więcej niż jeden obiekt,
