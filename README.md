@@ -76,11 +76,12 @@ liczb, napisów czy większych obiektów. Na przykład
 zamiast `7` należy zdefiniować stałą `BOARD_WIDTH = 7`,
 zamiast odróżniania kierunku przy użyciu zmiennej
 o wartości `'left'` albo `'right'` — zdefiniować
-stałe `LEFT, RIGHT = range(2)`, zamiast krotki
-`(65, 181, 137)` — stałą
-`BACKGROUND_COLOR = (65, 181, 137)`.
-Stałe zwyczajowo zapisujemy
-`WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
+stałe `LEFT, RIGHT = range(2)` (miłośnikom nowości
+polecam
+[`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum)),
+zamiast krotki `(0, 43, 54)` — stałą
+`BACKGROUND_COLOR = (0, 43, 54)`. Stałe zwyczajowo
+zapisujemy `WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 Nie od rzeczy będzie przypomnieć, że XXI wiek
 trwa już dość długo i w identyfikatorach można swobodnie
@@ -137,7 +138,8 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 lepiej pisać `'spam/ham.png'`, co działa również
 pod Windows.
 
-* Dłuższe ścieżki do plików dobrze skleja `os.path.join()`.
+* Dłuższe ścieżki do plików dobrze skleja
+[`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join).
 Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
 a które nie.
 
@@ -174,6 +176,25 @@ zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji, a każda będzie bazgrać
 po jedynym egzemplarzu atrybutu. Dlatego stosowanie
 zmiennych atrybutów klas jest prawie zawsze błędem.
+
+* Statyczne typy dobre, dynamiczne typy złe.
+Dlatego zmienne w stylu
+```python
+    point = {'x': 42, 'y': 56}
+```
+wyglądają lepiej jako
+[`collections.namedtuple`](https://docs.python.org/3/library/collections.html#collections.namedtuple).
+
+* Podobnie stałe w rodzaju
+```python
+    COLORS = {
+        'yellow': (181, 137, 0),
+        'orange': (203, 75, 22),
+        ...,
+    }
+```
+zyskują po zmianie na
+[`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum).
 
 * Koniec głównego modułu programu powinien się
 przedstawiać jak poniżej. Oczywiście nie wszystkie
