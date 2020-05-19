@@ -181,6 +181,9 @@ zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji, a każda będzie bazgrać
 po jedynym egzemplarzu atrybutu. Dlatego stosowanie
 zmiennych atrybutów klas jest prawie zawsze błędem.
+Poniekąd powiązany z tym zagadnieniem dekorator
+[`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass)
+jest nowy i nadobowiązkowy.
 
 * Statyczne typy dobre, dynamiczne typy złe.
 Dlatego zmienne w stylu
