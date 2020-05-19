@@ -44,10 +44,10 @@ czyli nie należy pisać `from __future__ import ...`,
 dziedziczyć z `object` ani korzystać z biblioteki `six`.
 Najczęściej ignorowane zasady powtarzam poniżej.
 
-* Proszę zainstalować narzędzie
-[`pylint`](https://pypi.org/project/pylint/),
-przepuszczać przez nie swój kod i poprawiać
-wskazane przez nie miejsca
+* [Pylint](https://pypi.org/project/pylint/)
+jest Państwa przyjacielem. Proszę go zainstalować,
+przepuszczać przez niego swój kod
+i poprawiać wskazane przez niego miejsca
 ([punkt 2.1](https://google.github.io/styleguide/pyguide.html#21-lint)).
 
 * Proszę używać instrukcji `import` wyłącznie
