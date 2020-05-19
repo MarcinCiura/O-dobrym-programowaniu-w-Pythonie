@@ -93,9 +93,10 @@ korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 
 * Warto pamiętać, że czytelnik programu nie musi
-znać tych samych skrótów, co my. Wniosek 1: skróty
-są niedozwolone, zarówno w identyfikatorach,
-jak w docstringach i komentarzach
+znać tych samych skrótów, co my. Wniosek 1: żadne
+skróty nie są dozwolone, zarówno w identyfikatorach,
+jak w docstringach i komentarzach, chyba że będą
+zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
 Wniosek 2: tym bardziej niedozwolone są jednoliterowe
 nazwy zmiennych
