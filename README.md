@@ -266,7 +266,9 @@ jest testować daną klasę.
       [prawa Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
       czyli przechodzeniu przez więcej niż jeden obiekt,
       np. `self.pies.ogon.merdaj()` zamiast poprawnego
-      `self.pies.merdaj()`.
+      `self.pies.merdaj()`, przy czym zmyłka polega na tym,
+      że błąd daje o sobie znać tutaj,
+      a leży w niedorobionej klasie `Pies`.
 * Złe klasy poznaje się po:
     * opisie zawierającym wyraz „i”;
     * rozłącznych zbiorach metod, które operują
