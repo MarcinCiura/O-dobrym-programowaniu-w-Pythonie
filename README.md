@@ -127,7 +127,8 @@ je podać poniżej, po pustym wierszu.
 Jeśli trzeba je połamać na krótsze kawałki,
 dobrze wiedzieć, że kawałki otoczone dowolnym
 rodzajem nawiasów (`()`, `[]`, `{}`) same się
-ze sobą łączą i wyglądają lepiej niż z `\` na końcach
+ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
+`\` na końcach
 ([punkt 3.2](https://google.github.io/styleguide/pyguide.html#32-line-length)).
 
 ### 3. Inne uwagi
