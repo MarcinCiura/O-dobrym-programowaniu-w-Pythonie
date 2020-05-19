@@ -134,6 +134,10 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 
 ### 3. Inne uwagi
 
+* Dobrym zwyczajem są przyrostki — jednostki miary —
+w nazwach stałych i zmiennych, które wyrażają wielkości fizyczne:
+`FRAME_INTERVAL_SECONDS`, `document_age_days`, `page_width_mm`.
+
 * Zamiast `r'spam\ham.png'`, co działa tylko pod Windows,
 lepiej pisać `'spam/ham.png'`, co działa również
 pod Windows.
