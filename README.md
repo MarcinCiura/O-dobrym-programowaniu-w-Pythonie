@@ -161,7 +161,7 @@ Jak jest jeden, pisać `(spam,)` lub `[spam]`.
 
 * Z drugiej strony przy zapytaniach z dynamicznymi nazwami kolumn
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
-bez f-stringów lub `.format()` nie da się obejść.
+nie da się obejść bez f-stringów lub `.format()`.
 
 * Python to nie Java. Zbyteczne jest tworzenie
 osobnych plików na małe klasy w stylu
