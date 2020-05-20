@@ -148,6 +148,21 @@ pod Windows.
 Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
 a które nie.
 
+* Chociaż pomysłowość studentów w domorosłych
+sposobach sklejania napisów nie zna granic,
+wewnątrz `sqlite3.Cursor.execute()` itp.
+zmienne parametry wolno wstawiać do SQL-a tylko przez
+[`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute).
+Wyjaśnienie
+[tutaj](https://xkcd.com/327/).
+Ku pamięci: w sposobach z pytajnikiem parametry
+po stronie Pythona muszą być w krotce lub liście.
+Jak jest jeden, pisać `(spam,)` lub `[spam]`.
+
+* Z drugiej strony przy zapytaniach z dynamicznymi nazwami kolumn
+lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
+bez f-stringów lub `.format()` nie da się obejść.
+
 * Python to nie Java. Zbyteczne jest tworzenie
 osobnych plików na małe klasy w stylu
 `PrzechowywaczMonet` tylko po to, żeby później
