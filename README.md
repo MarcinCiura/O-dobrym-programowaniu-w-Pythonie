@@ -161,11 +161,26 @@ Jak jest jeden, pisać `(spam,)` lub `[spam]`.
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
-* Python to nie Java. Zbyteczne jest tworzenie
-osobnych plików na małe klasy w stylu
-`PrzechowywaczMonet` tylko po to, żeby później
-było trzeba pisać `import PrzechowywaczMonet` i
+* Python to nie Java, odsłona pierwsza.
+Zbyteczne jest tworzenie osobnych plików
+na małe klasy w stylu `PrzechowywaczMonet`
+tylko po to, żeby później było trzeba pisać
+`import PrzechowywaczMonet` i
 `przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`.
+
+* Python to nie Java, odsłona druga. Zamiast pobieraczy
+(*getters*) i ustawiaczy (*setters*) robiących tylko
+`return self._spam` i `self._spam = spam` wystarczy
+nazwać ten atrybut `self.spam` i bezpośrednio go
+odczytywać i zapisywać. Jeśli potrzebny jest pobieracz,
+który robi coś więcej, pomoże nam dekorator
+[`@property`](https://docs.python.org/3/library/functions.html#property):
+```python
+    @property
+    def total_spam(self):
+        """Używać bez nawiasów: ham = self.total_spam"""
+        return sum(self._spam_list)
+```
 
 * Należy odróżniać atrybuty klasy, które są
 inicjalizowane tak:
@@ -293,7 +308,8 @@ skonstruowane obiekty. Dzięki takiemu „wstrzykiwaniu
 zależności” (*dependency injection*) znacznie łatwiej
 jest testować daną klasę.
 * Zły konstruktor poznaje się po:
-    * wywołaniach innych konstruktorów;
+    * wywołaniach innych konstruktorów
+      (`super().__init__()` jest OK);
     * wywołaniach funkcji, które zmieniają globalny
       stan programu;
     * instrukcjach warunkowych lub pętlach;
@@ -312,7 +328,10 @@ jest testować daną klasę.
       np. `self.pies.ogon.merdaj()` zamiast poprawnego
       `self.pies.merdaj()`, przy czym zmyłka polega na tym,
       że błąd daje o sobie znać tutaj,
-      a leży w niedorobionej klasie `Pies`.
+      a leży w niedorobionej klasie `Pies`
+      (gwoli jasności: w prawie Demeter nie chodzi o liczenie kropek,
+      tylko o nierozmawianie z obiektami oddalonymi od `self`;
+      takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
 * Złe klasy poznaje się po:
     * opisie zawierającym wyraz „i”;
     * rozłącznych zbiorach metod, które operują
