@@ -133,7 +133,7 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 `\` na końcach
 ([punkt 3.2](https://google.github.io/styleguide/pyguide.html#32-line-length)).
 
-### 3. Inne uwagi
+### 3. Rozmaite rady
 
 * Dobrym zwyczajem są przyrostki — jednostki miary —
 w nazwach stałych i zmiennych, które wyrażają wielkości fizyczne:
@@ -148,9 +148,7 @@ pod Windows.
 Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
 a które nie.
 
-* Chociaż pomysłowość studentów w domorosłych
-sposobach sklejania napisów nie zna granic,
-wewnątrz `sqlite3.Cursor.execute()` itp.
+* Wewnątrz `sqlite3.Cursor.execute()` itp.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute).
 Wyjaśnienie
@@ -196,9 +194,10 @@ zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji, a każda będzie bazgrać
 po jedynym egzemplarzu atrybutu. Dlatego stosowanie
 zmiennych atrybutów klas jest prawie zawsze błędem.
-Poniekąd powiązany z tym zagadnieniem dekorator
-[`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass)
-jest nowy i nadobowiązkowy.
+Dekorator
+[`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass),
+poniekąd powiązany z tym zagadnieniem, jest nowy
+i nadobowiązkowy.
 
 * Statyczne typy dobre, dynamiczne typy złe.
 Dlatego zmienne w stylu
