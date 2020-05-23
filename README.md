@@ -22,8 +22,8 @@ programu należy umieścić w pliku `requirements.txt`.
 Dzięki temu przez polecenie `pip install -r requirements.txt`
 można je wszystkie naraz zainstalować.
 [Tutaj](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file)
-znajduje się przykładowa treść tego pliku. Sądzę, że
-w większości przypadków wystarczy wymienienie nazw bibliotek
+przykładowa treść tego pliku. Sądzę, że w większości
+przypadków wystarczy wymienienie nazw bibliotek
 bez uściślania ich wersji, np.
 
     ```
