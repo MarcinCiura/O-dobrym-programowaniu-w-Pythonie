@@ -99,7 +99,7 @@ jak w docstringach i komentarzach, chyba że będą
 zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
 Wniosek 2: tym bardziej niedozwolone są jednoliterowe
-nazwy zmiennych
+identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
 Wyjątki to `i`, `j`, `k` jako liczniki pętli
 oraz litery pasujące do typu elementów w wyrażeniach
