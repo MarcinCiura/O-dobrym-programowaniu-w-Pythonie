@@ -381,7 +381,7 @@ jest testować daną klasę.
     * opisie zawierającym wyraz „i”;
     * rozłącznych zbiorach metod, które operują
       na rozłącznych zbiorach atrybutów;
-    * atrybutach, których wartości są zmieniane
+    * atrybutach zmienianych z zewnątrz obiektu
       przez bezpośrednie przypisania do obiektu
       zamiast korzystania po bożemu z jego metod.
 
