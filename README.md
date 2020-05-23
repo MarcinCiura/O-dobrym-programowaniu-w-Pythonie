@@ -203,6 +203,18 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
 
     for name, value_pln in COINS:                  for coin in COINS:
         frobnicate(name, value_pln)                    frobnicate(coin[0], coin[1])
+    ####                                           ####
+    ham = '\n'.join(spam_list)                     ham = ''
+                                                   for i, spam in enumerate(spam_list):
+                                                       if i:
+                                                           ham += '\n'
+                                                       ham += spam
+    ####                                           ####
+    ham = '\n'.join(                               ham = ''
+        frobnicate(x) for x in spam_list)          for i, spam in enumerate(spam_list):
+                                                       if i:
+                                                           ham += '\n'
+                                                       ham += frobnicate(spam)
 ```
 
 * Python to nie Java, odsłona pierwsza.
