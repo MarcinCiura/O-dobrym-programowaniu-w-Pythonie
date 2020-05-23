@@ -150,12 +150,13 @@ a które nie.
 
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
-[`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute).
+[`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
+a nigdy przez f-stringi ani `.format()`.
 Wyjaśnienie
 [tutaj](https://xkcd.com/327/).
 Ku pamięci: w sposobach z pytajnikiem parametry
-po stronie Pythona muszą być w krotce lub liście.
-Jak jest jeden, pisać `(spam,)` lub `[spam]`.
+po stronie Pythona muszą być w krotce lub liście,
+więc jak jest jeden, pisać `(spam,)` lub `[spam]`.
 
 * Z drugiej strony przy zapytaniach z dynamicznymi nazwami kolumn
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
