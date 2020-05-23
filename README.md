@@ -258,7 +258,7 @@ Dekorator
 poniekąd powiązany z tym zagadnieniem, jest nowy
 i nadobowiązkowy.
 
-* Statyczne typy dobre, dynamiczne typy złe.
+* Statyczne pola dobre, dynamiczne pola złe.
 Dlatego zmienne w stylu
 ```python
     point = {'x': 42, 'y': 56}
