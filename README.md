@@ -71,13 +71,13 @@ kodu z proceduralnej na obiektową tak, żeby stały
 się atrybutami instancji klasy.
 
 * Globalne stałe na poziomie modułów są natomiast
-mile widziane, a nawet wymagane zamiast magicznych
-liczb, napisów czy większych obiektów. Na przykład
-zamiast `7` należy zdefiniować stałą `BOARD_WIDTH = 7`,
-zamiast odróżniania kierunku przy użyciu zmiennej
-o wartości `'left'` albo `'right'` — zdefiniować
-stałe `LEFT, RIGHT = range(2)` (miłośnikom nowości
-polecam
+mile widziane, a nawet wymagane zamiast
+[magicznych liczb, napisów czy większych obiektów](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants).
+Na przykład zamiast `7` należy zdefiniować stałą
+`BOARD_WIDTH = 7`, zamiast odróżniania kierunku
+przy użyciu zmiennej o wartości `'left'` albo `'right'`
+— zdefiniować stałe `LEFT, RIGHT = range(2)`
+(miłośnikom nowości polecam
 [`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum)),
 zamiast krotki `(0, 43, 54)` — stałą
 `BACKGROUND_COLOR = (0, 43, 54)`. Stałe zwyczajowo
@@ -346,10 +346,18 @@ jest też mnogość innych.
 
 ### 4. Rady wyższego poziomu
 
+* [Kopiuj-wklejoza](https://en.wikipedia.org/wiki/Copy-and-paste_programming)
+(w najostrzejszych przypadkach mająca miejsce
+między różnymi plikami) nie przystoi prawdziwym programistom.
+Po to są moduły, dziedziczenie, metody, funkcje, pętle itp.,
+żeby z nich korzystać. W łagodniejszych przypadkach,
+kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
+[„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
 * Dobry konstruktor poznaje się po tym, że tylko
 łączy w całość przekazane mu inne, wcześniej
-skonstruowane obiekty. Dzięki takiemu „wstrzykiwaniu
-zależności” (*dependency injection*) znacznie łatwiej
+skonstruowane obiekty. Dzięki takiemu
+[„wstrzykiwaniu zależności”](https://pl.wikipedia.org/wiki/Wstrzykiwanie_zale%C5%BCno%C5%9Bci)
+(*dependency injection*) znacznie łatwiej
 jest testować daną klasę.
 * Zły konstruktor poznaje się po:
     * wywołaniach innych konstruktorów
@@ -367,13 +375,13 @@ jest testować daną klasę.
     * korzystaniu ze swoich argumentów nie wprost,
       tylko po to, żeby się dostać do innych obiektów;
     * naruszaniu
-      [prawa Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
+      [reguły Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
       czyli przechodzeniu przez więcej niż jeden obiekt,
       np. `self.pies.ogon.merdaj()` zamiast poprawnego
       `self.pies.merdaj()`, przy czym zmyłka polega na tym,
       że błąd daje o sobie znać tutaj,
       a leży w niedorobionej klasie `Pies`
-      (gwoli jasności: w prawie Demeter nie chodzi o liczenie kropek,
+      (gwoli jasności: w regule Demeter nie chodzi o liczenie kropek,
       tylko o nierozmawianie z obiektami oddalonymi od `self`;
       takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
 * Złe klasy poznaje się po:
