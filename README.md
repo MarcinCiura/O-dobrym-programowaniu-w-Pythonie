@@ -161,6 +161,50 @@ Jak jest jeden, pisać `(spam,)` lub `[spam]`.
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
+* Polecam odczytywać wartości z jednej kolumny tabeli
+tak jak niżej. O metodzie `.fetchall()` najlepiej zapomnieć.
+```python
+    spam_list = []
+    for row in cursor.execute(
+            """
+            SELECT spam FROM SpamTable
+            WHERE ham = ?
+            AND eggs = ?
+            """,
+            (ham, eggs)
+    ):
+        spam_list.append(row[0])
+        # Prosimy o jedną kolumnę, więc
+        # dostajemy 1-elementowe krotki.
+```
+
+* Python to nie C. Poniżej wzorce i antywzorce pętli.
+```python
+    # PYTONICZNIE                                  # NIEPYTONICZNIE
+    ####                                           ####
+    for spam in spam_list:                         for i in range(len(spam_list)):
+        frobnicate(spam)                               frobnicate(spam_list[i])
+    ####                                           ####
+    for i, spam in enumerate(spam_list):           i = 0
+        frobnicate(i, spam)                        for spam in spam_list:
+                                                       frobnicate(i, spam)
+                                                       i += 1
+    ####                                           ####
+    for spam, ham in zip(spam_list, ham_list):     for i in range(len(spam_list)):
+        frobnicate(spam, ham)                          frobnicate(
+                                                           spam_list[i],
+                                                           ham_list[i])
+    ####                                           ####
+    COINS = [                                      COINS = [
+        ('1 grosz', 0.01),                             ['1 grosz', 0.01],
+        ('2 grosze', 0.02),                            ['2 grosze', 0.02],
+        ...,                                           ...,
+    ]                                              ]
+
+    for name, value_pln in COINS:                  for coin in COINS:
+        frobnicate(name, value_pln)                    frobnicate(coin[0], coin[1])
+```
+
 * Python to nie Java, odsłona pierwsza.
 Zbyteczne jest tworzenie osobnych plików
 na małe klasy w stylu `PrzechowywaczMonet`
