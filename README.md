@@ -258,7 +258,7 @@ Dekorator
 poniekąd powiązany z tym zagadnieniem, jest nowy
 i nadobowiązkowy.
 
-* Statyczne pola dobre, dynamiczne pola złe.
+* Statyczne nazwy dobre, dynamiczne nazwy złe.
 Dlatego zmienne w stylu
 ```python
     point = {'x': 42, 'y': 56}
