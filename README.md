@@ -70,8 +70,8 @@ Często da się ich pozbyć przez zmianę architektury
 kodu z proceduralnej na obiektową tak, żeby stały
 się atrybutami instancji klasy.
 
-* Globalne stałe na poziomie modułów są natomiast
-mile widziane, a nawet wymagane zamiast
+* Globalne stałe są natomiast mile widziane,
+a nawet wymagane zamiast
 [magicznych liczb, napisów czy większych obiektów](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants).
 Na przykład zamiast `7` należy zdefiniować stałą
 `BOARD_WIDTH = 7`, zamiast odróżniania kierunku
