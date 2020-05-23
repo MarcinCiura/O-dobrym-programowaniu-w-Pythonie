@@ -101,13 +101,13 @@ zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 Wniosek 2: tym bardziej niedozwolone są jednoliterowe
 identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
-Wyjątki to `i`, `j`, `k` jako liczniki pętli
-oraz litery pasujące do typu elementów w wyrażeniach
-listowych, słownikowych, zbiorowych i generatorowych,
-czyli po naszemu *list/dict/set comprehensions*
-i *generator expressions* (często cholera wie,
-jaka litera pasuje, ale jeszcze nikomu
-nie stała się krzywda za użycie `x`).
+Wyjątki to `i`, `j`, `k` jako liczniki pętli,
+a także litery pasujące do typu danych w funkcjach anonimowych
+oraz wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
+czyli po naszemu *lambda expressions*,
+*list/dict/set comprehensions* i *generator expressions*
+(często trudno wyczuć, jaka litera pasuje,
+ale jeszcze nikomu nie stała się krzywda za użycie `x`).
 
 * Wymagane są docstringi do modułów, klas, metod
 i funkcji, chyba że są jednowierszowe lub w inny
