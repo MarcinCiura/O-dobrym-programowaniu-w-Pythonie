@@ -110,8 +110,8 @@ czyli po naszemu *lambda expressions*,
 ale jeszcze nikomu nie stała się krzywda za użycie `x`).
 
 * Wymagane są docstringi do modułów, klas, metod
-i funkcji, chyba że są jednowierszowe lub w inny
-sposób oczywiste
+i funkcji, chyba że jednowierszowych lub w inny
+sposób oczywistych
 ([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 Należy się zapoznać z zasadami pisania docstringów
 i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
@@ -245,7 +245,7 @@ i są wspólne dla wszystkich instancji klasy
 `self.ham`), a te drugie są osobne w każdej instancji
 (`self.ham`). Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
-klasy zmienia wartość w czasie działania programu,
+klasy zmienia wartość w trakcie działania programu,
 to prosimy się o kłopoty. Nawet gdy przewidujemy
 istnienie podczas działania programu tylko jednej
 instancji klasy (np. `Game`), to przy testowaniu
