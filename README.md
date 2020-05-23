@@ -23,7 +23,7 @@ Dzięki temu przez polecenie `pip install -r requirements.txt`
 można je wszystkie naraz zainstalować.
 [Tutaj](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file)
 przykładowa treść tego pliku. Sądzę, że w większości
-przypadków wystarczy wymienienie nazw bibliotek
+przypadków wystarczy wymienić nazwy bibliotek
 bez uściślania ich wersji, np.
 
     ```
