@@ -163,8 +163,8 @@ więc jak jest jeden, pisać `(spam,)` lub `[spam]`.
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
-* Polecam odczytywać wartości z jednej kolumny tabeli
-tak jak niżej. O metodzie `.fetchall()` najlepiej zapomnieć.
+* Polecam poniższy szablon czytania z bazy danych.
+O metodzie `.fetchall()` najlepiej zapomnieć.
 ```python
     spam_list = []
     for row in cursor.execute(
@@ -176,8 +176,8 @@ tak jak niżej. O metodzie `.fetchall()` najlepiej zapomnieć.
             (ham, eggs)
     ):
         spam_list.append(row[0])
-        # Prosimy o jedną kolumnę, więc
-        # dostajemy 1-elementowe krotki.
+        # O ile kolumn prosi SELECT,
+        # tyle elementów mają krotki |row|.
 ```
 
 * Python to nie C. Poniżej wzorce i antywzorce pętli.
@@ -193,9 +193,7 @@ tak jak niżej. O metodzie `.fetchall()` najlepiej zapomnieć.
                                                        i += 1
     ####                                           ####
     for spam, ham in zip(spam_list, ham_list):     for i in range(len(spam_list)):
-        frobnicate(spam, ham)                          frobnicate(
-                                                           spam_list[i],
-                                                           ham_list[i])
+        frobnicate(spam, ham)                          frobnicate(spam_list[i], ham_list[i])
     ####                                           ####
     COINS = [                                      COINS = [
         ('1 grosz', 0.01),                             ['1 grosz', 0.01],
@@ -279,10 +277,10 @@ wyglądają lepiej jako
 zyskują po zmianie na
 [`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum).
 
-* Koniec głównego modułu programu powinien się
-przedstawiać jak poniżej. Oczywiście nie wszystkie
-sekcje funkcji `main()` muszą wystąpić w każdym
-programie.
+* Kod lewitujący poza funkcjami należy powkładać do funkcji.
+Koniec głównego modułu programu powinien się przedstawiać
+jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
+muszą wystąpić w każdym programie.
 
     ```python
     def main():
