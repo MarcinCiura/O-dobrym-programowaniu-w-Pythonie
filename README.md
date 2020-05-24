@@ -56,6 +56,12 @@ klas czy funkcji, a już broń Boże nigdy nie pisać
 `from spam import *`. Dzięki temu unikną Państwo
 zaśmiecania przestrzeni nazw nie wiadomo czym
 ([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)).
+Rozumiem, że ta zasada może wywoływać Państwa opór,
+ale my tu symulujemy pracę w firmie.
+W projektach tworzonych przez zespół
+lepsze są zbyt sztywne reguły od braku reguł.
+Poza tym standardy firm mniejszego kalibru niż Google
+bywają bardziej niedorzeczne. Proszę się przyzwyczajać.
 
 * Można rozdzielać pustymi wierszami sąsiednie sekcje
 złożone z instrukcji `import`, które powinnny dotyczyć
