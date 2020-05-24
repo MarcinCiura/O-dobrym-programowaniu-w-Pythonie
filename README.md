@@ -300,17 +300,23 @@ wyglądają lepiej jako
 zyskują po zmianie na
 [`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum).
 
-* Kod lewitujący poza funkcjami należy powkładać do funkcji.
-Koniec głównego modułu programu powinien się przedstawiać
+* Importowanie modułu nigdy nie powinno mieć skutków ubocznych
+— takich jak wypisywanie tekstu, otwieranie okien,
+odczytywanie (zapisywanie?!) bazy danych, wykonywanie
+długich obliczeń itp. Są to zawsze skutki kodu
+lewitującego poza funkcjami. Taki kod należy powkładać
+do funkcji, a te wywoływać z funkcji `main()`.
+
+* Koniec głównego modułu programu powinien się przedstawiać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
 muszą wystąpić w każdym programie.
 
     ```python
     def main():
-        ... [inicjalizacja bibliotek zewnętrznych]
-        ... [tworzenie obiektów odpowiednich klas]
-        ... [wywołanie funkcji lub metody wprawiającej te obiekty w ruch]
-        ... [sprzątanie]
+        [inicjalizacja bibliotek zewnętrznych]
+        [tworzenie obiektów odpowiednich klas]
+        [wywołanie funkcji lub metody wprawiającej te obiekty w ruch]
+        [sprzątanie]
 
 
     if __name__ == '__main__':
