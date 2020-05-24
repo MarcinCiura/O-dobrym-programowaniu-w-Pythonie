@@ -13,19 +13,20 @@ np. `desktop.ini`.
 
 * Wskazane jest za to dodanie pliku `.gitignore`
 o treści odpowiedniej dla projektów pisanych w Pythonie.
-Kto nie dodał tego pliku przy tworzeniu repozytorium,
+Kto nie dodał tego pliku przy zakładaniu repozytorium,
 [tutaj](https://github.com/github/gitignore/blob/master/Python.gitignore)
 znajdzie odpowiednią treść.
 
-* Nazwy bibliotek zewnętrznych niezbędnych do działania
-programu należy umieścić w pliku `requirements.txt`.
+* Nazwy bibliotek zewnętrznych niezbędnych do działania programu
+należy umieścić w pliku `requirements.txt`
+(zewnętrzne znaczy „nie te, co się zainstalowały z Pythonem”;
+nie robić pliku, jak nie ma z czym).
 Dzięki temu przez polecenie `pip install -r requirements.txt`
 można je wszystkie naraz zainstalować.
 [Tutaj](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file)
 przykładowa treść tego pliku. Sądzę, że w większości
-przypadków wystarczy wymienić nazwy bibliotek
+Państwa projektów wystarczy wymienić nazwy bibliotek
 bez uściślania ich wersji, np.
-
     ```
     numpy
     pygame
