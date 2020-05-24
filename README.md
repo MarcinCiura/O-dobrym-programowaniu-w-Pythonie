@@ -99,15 +99,16 @@ korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 
 * Warto pamiętać, że czytelnik programu nie musi
-znać tych samych skrótów, co my. Wniosek 1: żadne
-skróty nie są dozwolone, zarówno w identyfikatorach,
+znać tych samych skrótów, co my. Wniosek pierwszy:
+żadne skróty nie są dozwolone, zarówno w identyfikatorach,
 jak w docstringach i komentarzach, chyba że będą
 zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
-Wniosek 2: tym bardziej niedozwolone są jednoliterowe
+Wniosek drugi: tym bardziej niedozwolone są jednoliterowe
 identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
-Wyjątki to `i`, `j`, `k` jako liczniki pętli,
+Wyjątki to `i`, `j`, `k` jako liczniki pętli;
+`x`, `y`, `z` jako współrzędne,
 a także litery pasujące do typu danych w funkcjach anonimowych
 oraz wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
 czyli po naszemu *lambda expressions*,
