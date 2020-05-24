@@ -156,6 +156,9 @@ pod Windows.
 Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
 a które nie.
 
+* [System baz danych](https://pl.wikipedia.org/wiki/System_zarz%C4%85dzania_relacyjn%C4%85_baz%C4%85_danych),
+którego używają Państwa programy, nazywa się SQLite, nie MySQL.
+
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
