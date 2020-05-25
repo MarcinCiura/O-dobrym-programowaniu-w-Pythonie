@@ -148,8 +148,9 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 
 ### 3. Rozmaite rady
 
-* Dobrym zwyczajem są przyrostki — jednostki miary —
-w identyfikatorach związanych z wielkościami fizycznymi:
+* [Dobrym zwyczajem](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy)
+są przyrostki — jednostki miary — w identyfikatorach
+związanych z wielkościami fizycznymi:
 `FRAME_INTERVAL_SECONDS`, `document_age_days`,
 `calculate_page_width_mm()`.
 
@@ -308,9 +309,10 @@ zyskują po zmianie na
 * Importowanie modułu nigdy nie powinno mieć skutków ubocznych
 — takich jak wypisywanie tekstu, otwieranie okien,
 odczytywanie (zapisywanie?!) bazy danych, wykonywanie
-długich obliczeń itp. Są to zawsze skutki kodu
-lewitującego poza funkcjami. Taki kod należy powkładać
-do funkcji, a te wywoływać z funkcji `main()`.
+długich obliczeń, wystrzelenie pocisków balistycznych itp.
+Są to zawsze skutki kodu lewitującego poza funkcjami.
+Taki kod należy powkładać do funkcji, a te wywoływać
+z funkcji `main()`.
 
 * Koniec głównego modułu programu powinien się przedstawiać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
