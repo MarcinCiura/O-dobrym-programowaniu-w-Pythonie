@@ -57,7 +57,7 @@ klas czy funkcji, a już broń Boże nigdy nie pisać
 `from spam import *`. Dzięki temu unikną Państwo
 zaśmiecania przestrzeni nazw nie wiadomo czym
 ([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)).
-Rozumiem, że ta zasada może wywoływać Państwa opór,
+Rozumiem, że ta zasada może budzić Państwa opór,
 ale my tu symulujemy pracę w firmie.
 W projektach tworzonych przez zespół
 lepsze są zbyt sztywne reguły od braku reguł.
@@ -113,26 +113,13 @@ zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 Wniosek drugi: tym bardziej niedozwolone są jednoliterowe
 identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
-Wyjątki to `i`, `j`, `k` jako liczniki pętli;
-`x`, `y`, `z` jako współrzędne,
+Wyjątki to `i`, `j`, `k` jako liczniki pętli,
 a także litery pasujące do typu danych w funkcjach anonimowych
 oraz wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
 czyli po naszemu *lambda expressions*,
 *list/dict/set comprehensions* i *generator expressions*
 (często trudno wyczuć, jaka litera pasuje,
 ale jeszcze nikomu nie stała się krzywda za użycie `x`).
-
-* Wymagane są docstringi do modułów, klas, metod
-i funkcji, chyba że jednowierszowych lub w inny
-sposób oczywistych
-([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
-Należy się zapoznać z zasadami pisania docstringów
-i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
-pełne a krótkie zdanie (na końcu zdania stawiamy kropkę)
-opisujące działanie metody lub funkcji, np.
-`"""Zwraca przycisk naciśnięty przez użytkownika."""`
-Jeśli potrzebne jest dłuższe objaśnienie, należy
-je podać poniżej, po pustym wierszu.
 
 * Poniżej wzorce i antywzorce instrukcji warunkowych
 ([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)).
@@ -163,6 +150,19 @@ je podać poniżej, po pustym wierszu.
 * Sklejanie napisów przez `+` jest nieładne.
 Ładne są za to f-stringi
 ([punkt 3.10](https://google.github.io/styleguide/pyguide.html#310-strings)).
+
+* Wymagane są docstringi do modułów, klas, metod
+i funkcji, chyba że jednowierszowych lub w inny
+sposób oczywistych
+([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
+Należy się zapoznać z zasadami pisania docstringów
+i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
+zwięzłe zdanie (na końcu zdania stawiamy kropkę)
+opisujące działanie metody lub funkcji, np.
+`"""Zwraca przycisk naciśnięty przez użytkownika."""`
+Jeśli potrzebne jest dłuższe objaśnienie,
+należy je podać wewnątrz tego samego napisu,
+oddzielone pustym wierszem.
 
 * Wiersze programu nie powinny być za długie.
 Jeśli trzeba je połamać na krótsze kawałki,
@@ -339,6 +339,28 @@ długich obliczeń, wystrzeliwanie pocisków balistycznych itp.
 Są to zawsze skutki kodu lewitującego poza funkcjami.
 Taki kod należy powkładać do funkcji, a te wywoływać
 z funkcji `main()`.
+
+* Na pliki graficzne, fonty, dźwięki itp.
+proponuję założyć plik `assets.py` o takiej treści:
+    ```python
+    """Zasoby potrzebne do gry."""
+
+    import pygame
+
+
+    # pylint: disable=too-few-public-methods
+    class Assets:
+        """Przechowuje zasoby."""
+
+        @staticmethod
+        def load():
+            """Wczytuje zasoby z dysku."""
+            Assets.HAM_IMAGE = pygame.image.load('assets/ham.png')
+            ...
+            Assets.LARGE_FONT = pygame.font.Font('assets/Delicious-Roman.otf', 48)
+            ...
+    ```
+i w funkcji `main()` wywoływać metodę `assets.Assets.load()`.
 
 * Koniec głównego modułu programu powinien się przedstawiać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
