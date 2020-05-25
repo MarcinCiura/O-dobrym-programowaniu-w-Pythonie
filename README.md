@@ -225,7 +225,7 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
 
 * Żeby się dowiedzieć, jakie kolumny zwraca `SELECT *`,
 trzeba znaleźć kod tworzący tabelę.
-Lepiej jawnie wymieniać kolumny.
+W programach lepiej jawnie wymieniać kolumny.
 
 * Python to nie C. Poniżej wzorce i antywzorce pętli.
 ```python
@@ -359,7 +359,7 @@ proponuję założyć plik `assets.py` o takiej treści:
         @staticmethod
         def load():
             """Wczytuje zasoby z dysku."""
-            Assets.HAM_IMAGE = pygame.image.load('assets/ham.png')
+            Assets.SPAM_IMAGE = pygame.image.load('assets/spam.png')
             ...
             Assets.LARGE_FONT = pygame.font.Font('assets/Delicious-Roman.otf', 48)
             ...
