@@ -309,7 +309,7 @@ zyskują po zmianie na
 * Importowanie modułu nigdy nie powinno mieć skutków ubocznych
 — takich jak wypisywanie tekstu, otwieranie okien,
 odczytywanie (zapisywanie?!) bazy danych, wykonywanie
-długich obliczeń, wystrzelenie pocisków balistycznych itp.
+długich obliczeń, wystrzeliwanie pocisków balistycznych itp.
 Są to zawsze skutki kodu lewitującego poza funkcjami.
 Taki kod należy powkładać do funkcji, a te wywoływać
 z funkcji `main()`.
