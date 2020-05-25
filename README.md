@@ -223,6 +223,10 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
         # tyle elementów mają krotki |row|.
 ```
 
+* Żeby się dowiedzieć, jakie kolumny zwraca `SELECT *`,
+trzeba znaleźć kod tworzący tabelę.
+Lepiej jawnie wymieniać kolumny.
+
 * Python to nie C. Poniżej wzorce i antywzorce pętli.
 ```python
     # PYTONICZNIE                                  # NIEPYTONICZNIE
