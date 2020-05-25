@@ -134,6 +134,32 @@ opisujące działanie metody lub funkcji, np.
 Jeśli potrzebne jest dłuższe objaśnienie, należy
 je podać poniżej, po pustym wierszu.
 
+* Poniżej wzorce i antywzorce instrukcji warunkowych
+([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)).
+```python
+    # LEPIEJ                                       # GORZEJ
+    ####                                           ####
+    # Jest tylko 1 egzemplarz stałej |None|.
+    if spam is None:                               if spam == None:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if spam is not None:                           if spam != None:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if spam:                                       if spam is True:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if not spam:                                   if spam is False:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    # Listy i krotki.
+    if spam_sequence:                              if len(spam_sequence) > 0:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if spam_string:                                if spam_string != '':
+        frobnicate()                                   frobnicate()
+```
+
 * Sklejanie napisów przez `+` jest nieładne.
 Ładne są za to f-stringi
 ([punkt 3.10](https://google.github.io/styleguide/pyguide.html#310-strings)).
