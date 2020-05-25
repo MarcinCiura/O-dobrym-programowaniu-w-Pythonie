@@ -95,9 +95,14 @@ trwa już dość długo i w identyfikatorach można swobodnie
 korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 
 * Nazwy funkcji i zmiennych w `styluWielbłądzim`
-(*`camelCase`*) są niepytoniczne. Powinny być w
-`stylu_wężowym` (*`snake_case`*)
+(*`camelCase`*) są niepytoniczne. Powinny być
+w `stylu_wężowym` (*`snake_case`*)
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
+
+* Ponieważ z nazw plików `*.py` i katalogów z nimi
+powstają nazwy modułów i pakietów programu,
+do nich też lepiej pasuje `styl_wężowy`
+([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
 
 * Warto pamiętać, że czytelnik programu nie musi
 znać tych samych skrótów, co my. Wniosek pierwszy:
@@ -164,7 +169,7 @@ którego używają Państwa programy, nazywa się SQLite, nie MySQL.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
 a nigdy przez f-stringi ani `.format()`.
-Wyjaśnienie
+Uzasadnienie
 [tutaj](https://xkcd.com/327/).
 Ku pamięci: w sposobach z pytajnikiem parametry
 po stronie Pythona muszą być w krotce lub liście,
