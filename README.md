@@ -221,7 +221,7 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
     # krotki generowane przez |cursor.execute()|.
     # 1-elementowe krotki rozpakowuje się swoiście.
     spam_list = []
-    for (spam,) in cursor.execute(
+    for (spam,) in cursor.execute(  # Działa też spam, lub [spam].
             """
             SELECT spam
             FROM SpamTable
@@ -231,7 +231,8 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
             (ham, eggs)
     ):
         spam_list.append(spam)
-    ####
+
+    # Przy rozpakowywaniu dłuższych krotek nie ma niespodzianek.
     for spam, ham in cursor.execute(
             """
             SELECT spam, ham
