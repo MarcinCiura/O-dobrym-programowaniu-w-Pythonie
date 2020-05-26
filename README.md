@@ -214,21 +214,31 @@ więc jak jest jeden, pisać `(spam,)` lub `[spam]`.
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
-* Polecam poniższy szablon czytania z bazy danych.
+* Polecam poniższe szablony czytania z bazy danych.
 O metodzie `.fetchall()` najlepiej zapomnieć.
 ```python
+    # O ile kolumn prosi SELECT, tyle elementów mają
+    # krotki generowane przez |cursor.execute()|.
+    # 1-elementowe krotki rozpakowuje się swoiście.
     spam_list = []
-    for row in cursor.execute(
+    for (spam,) in cursor.execute(
             """
-            SELECT spam FROM SpamTable
+            SELECT spam
+            FROM SpamTable
             WHERE ham = ?
             AND eggs = ?
             """,
             (ham, eggs)
     ):
-        spam_list.append(row[0])
-        # O ile kolumn prosi SELECT,
-        # tyle elementów mają krotki |row|.
+        spam_list.append(spam)
+    ####
+    for spam, ham in cursor.execute(
+            """
+            SELECT spam, ham
+            FROM Table
+            """
+    ):
+        frobnicate(spam, ham)
 ```
 
 * Żeby się dowiedzieć, jakie kolumny zwraca `SELECT *`,
