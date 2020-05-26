@@ -51,12 +51,16 @@ przepuszczać przez niego swój kod
 i poprawiać wskazane przez niego miejsca
 ([punkt 2.1](https://google.github.io/styleguide/pyguide.html#21-lint)).
 
-* Proszę używać instrukcji `import` wyłącznie
-z nazwami pakietów i modułów, a nie poszczególnych
-klas czy funkcji, a już broń Boże nigdy nie pisać
-`from spam import *`. Dzięki temu unikną Państwo
-zaśmiecania przestrzeni nazw nie wiadomo czym
-([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)).
+* Proszę używać instrukcji `from ... import ...`
+wyłącznie do importowania modułów z pakietów,
+a nie poszczególnych klas czy funkcji z modułów
+([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)),
+bo długi wykaz potrzebnych klas i funkcji
+`from grocery import spam, ham, eggs, cheese,...`
+jest niewygodny, a krótki nie ma przewag nad `import grocery`.
+A już broń Boże proszę nigdy nie pisać `from grocery import *`,
+bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
+nieokreślonych identyfikatorów dezorientuje czytelnika.
 Rozumiem, że ta zasada może budzić Państwa opór,
 ale my tu symulujemy pracę w firmie.
 W projektach tworzonych przez zespół
@@ -122,7 +126,8 @@ czyli po naszemu *lambda expressions*,
 ale jeszcze nikomu nie stała się krzywda za użycie `x`).
 
 * Poniżej wzorce i antywzorce instrukcji warunkowych
-([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)).
+([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)
+i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 ```python
     # LEPIEJ                                       # GORZEJ
     ####                                           ####
@@ -144,6 +149,9 @@ ale jeszcze nikomu nie stała się krzywda za użycie `x`).
         frobnicate()                                   frobnicate()
     ####                                           ####
     if spam_string:                                if spam_string != '':
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if needle in haystack_dict:                    if needle in haystack_dict.keys():
         frobnicate()                                   frobnicate()
 ```
 
