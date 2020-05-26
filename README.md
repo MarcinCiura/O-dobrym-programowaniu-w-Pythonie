@@ -53,11 +53,11 @@ i poprawiać wskazane przez niego miejsca
 
 * Proszę używać instrukcji `from ... import ...`
 wyłącznie do importowania modułów z pakietów,
-a nie poszczególnych klas czy funkcji z modułów
+a nie poszczególnych klas, funkcji czy stałych z modułów
 ([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)),
-bo długi wykaz potrzebnych klas i funkcji
+bo długi wykaz potrzebnych identyfikatorów
 `from grocery import spam, ham, eggs, cheese,...`
-jest niewygodny, a krótki nie ma przewag nad `import grocery`.
+jest niewygodny, a krótki nie ma przewagi nad `import grocery`.
 A już broń Boże proszę nigdy nie pisać `from grocery import *`,
 bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
 nieokreślonych identyfikatorów dezorientuje czytelnika.
@@ -183,10 +183,10 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 ### 3. Rozmaite rady
 
 * [Dobrym zwyczajem](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy)
-są przyrostki — jednostki miary — w identyfikatorach
-związanych z wielkościami fizycznymi:
+są przyrostki z jednostkami w nazwach wszystkiego,
+co można mierzyć na różne sposoby:
 `FRAME_INTERVAL_SECONDS`, `document_age_days`,
-`calculate_page_width_mm()`.
+`page_width_mm`, `calculate_vat_pln()`.
 
 * Zamiast `r'spam\ham.png'`, co działa tylko pod Windows,
 lepiej pisać `'spam/ham.png'`, co działa również
