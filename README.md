@@ -236,7 +236,7 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
     for spam, ham in cursor.execute(
             """
             SELECT spam, ham
-            FROM Table
+            FROM SomeTable
             """
     ):
         frobnicate(spam, ham)
