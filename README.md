@@ -357,11 +357,10 @@ zyskują po zmianie na
 
 * Importowanie modułu nigdy nie powinno mieć skutków ubocznych
 — takich jak wypisywanie tekstu, otwieranie okien,
-odczytywanie (zapisywanie?!) bazy danych, wykonywanie
-długich obliczeń, wystrzeliwanie pocisków balistycznych itp.
-Są to zawsze skutki kodu lewitującego poza funkcjami.
-Taki kod należy powkładać do funkcji, a te wywoływać
-z funkcji `main()`.
+odczytywanie (zapisywanie?!) plików, wystrzeliwanie
+pocisków balistycznych itp. Są to zawsze skutki
+kodu lewitującego poza funkcjami. Taki kod należy
+powkładać do funkcji, a te wywoływać z funkcji `main()`.
 
 * Na pliki graficzne, fonty, dźwięki itp.
 proponuję założyć plik `assets.py` o takiej treści:
@@ -492,7 +491,7 @@ jest testować daną klasę.
       tylko o nierozmawianie z obiektami oddalonymi od `self`;
       takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
 * Złe klasy poznaje się po:
-    * opisie zawierającym wyraz „i”;
+    * opisie zawierającym spójnik „i”;
     * rozłącznych zbiorach metod, które operują
       na rozłącznych zbiorach atrybutów;
     * atrybutach zmienianych z zewnątrz obiektu
@@ -500,3 +499,7 @@ jest testować daną klasę.
       zamiast korzystania po bożemu z jego metod.
 
 ### Miłego programowania!
+
+*Ekspert to osoba, która popełniła wszystkie błędy,
+które można popełnić wewnątrz ograniczonej dziedziny*
+— Niels Bohr
