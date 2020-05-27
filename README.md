@@ -357,12 +357,12 @@ zyskują po zmianie na
 
 * Importowanie modułu nigdy nie powinno mieć skutków ubocznych
 — takich jak wypisywanie tekstu, otwieranie okien,
-odczytywanie (zapisywanie?!) plików, wystrzeliwanie
+wczytywanie (zapisywanie?!) plików, wystrzeliwanie
 pocisków balistycznych itp. Są to zawsze skutki
 kodu lewitującego poza funkcjami. Taki kod należy
 powkładać do funkcji, a te wywoływać z funkcji `main()`.
 
-* Na pliki graficzne, fonty, dźwięki itp.
+* Na wczytywane z dysku obrazki, fonty, dźwięki itp.
 proponuję założyć plik `assets.py` o takiej treści:
     ```python
     """Zasoby potrzebne do gry."""
