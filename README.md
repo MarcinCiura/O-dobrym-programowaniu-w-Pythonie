@@ -117,13 +117,14 @@ zrozumiałe dla każdego średnio rozgarniętego pięciolatka
 Wniosek drugi: tym bardziej niedozwolone są jednoliterowe
 identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
-Wyjątki to `i`, `j`, `k` jako liczniki pętli,
-a także litery pasujące do typu danych w funkcjach anonimowych
+Pierwszy wyjątek to `i`, `j`, `k` jako liczniki pętli,
+czyli zmienne całkowite generowane przez funkcję `range()`.
+Drugi wyjątek to litery pasujące do typu danych w funkcjach anonimowych
 oraz wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
 czyli po naszemu *lambda expressions*,
-*list/dict/set comprehensions* i *generator expressions*
-(często trudno wyczuć, jaka litera pasuje,
-ale jeszcze nikomu nie stała się krzywda za użycie `x`).
+*list/dict/set comprehensions* i *generator expressions*.
+Często trudno wyczuć, jaka litera pasuje,
+ale jeszcze nikomu nie stała się krzywda za użycie `x`.
 
 * Poniżej wzorce i antywzorce instrukcji warunkowych
 ([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)
