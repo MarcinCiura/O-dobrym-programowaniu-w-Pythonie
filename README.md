@@ -90,8 +90,12 @@ przy użyciu zmiennej o wartości `'left'` albo `'right'`
 — zdefiniować stałe `LEFT, RIGHT = range(2)`
 (miłośnikom nowości polecam
 [`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum)),
-zamiast krotki `(0, 43, 54)` — stałą
-`BACKGROUND_COLOR = (0, 43, 54)`. Stałe zwyczajowo
+zamiast krotki `(38, 139, 210)` — stałą
+`BACKGROUND_COLOR = (38, 139, 210)`.
+Nazwa stałej powinna odpowiadać jej zastosowaniu,
+nie zawartości: gdyby ostatnią stałą nazwać `BLUE`,
+doszłoby do absurdu, jeśli kiedyś zechcieliby Państwo
+zmienić tło na pomarańczowe. Stałe zwyczajowo
 zapisujemy `WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
 Nie od rzeczy będzie przypomnieć, że XXI wiek
@@ -168,7 +172,7 @@ Należy się zapoznać z zasadami pisania docstringów
 i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
 zwięzłe zdanie (na końcu zdania stawiamy kropkę)
 opisujące działanie metody lub funkcji, np.
-`"""Zwraca przycisk naciśnięty przez użytkownika."""`
+`"""Zwraca indeks naciśniętego przycisku."""`
 Jeśli potrzebne jest dłuższe objaśnienie,
 należy je podać wewnątrz tego samego napisu,
 oddzielone pustym wierszem.
@@ -354,7 +358,14 @@ wyglądają lepiej jako
     }
 ```
 zyskują po zmianie na
-[`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum).
+```python
+    class Colors:
+        """Paleta barw."""
+        # pylint: disable=too-few-public-methods
+        YELLOW = (181, 137, 0)
+        ORANGE = (203, 75, 22)
+        ...
+```
 
 * Importowanie modułu nigdy nie powinno mieć skutków ubocznych
 — takich jak wypisywanie tekstu, otwieranie okien,
@@ -371,9 +382,9 @@ proponuję założyć plik `assets.py` o takiej treści:
     import pygame
 
 
-    # pylint: disable=too-few-public-methods
     class Assets:
         """Przechowuje zasoby."""
+        # pylint: disable=too-few-public-methods
 
         @staticmethod
         def load():
