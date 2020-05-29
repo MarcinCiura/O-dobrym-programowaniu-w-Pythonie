@@ -375,7 +375,9 @@ kodu lewitującego poza funkcjami. Taki kod należy
 powkładać do funkcji, a te wywoływać z funkcji `main()`.
 
 * Na wczytywane z dysku obrazki, fonty, dźwięki itp.
-proponuję założyć plik `assets.py` o takiej treści:
+proponuję założyć plik `assets.py` o poniższej treści.
+Podobnie można zgrupować wczytywanie obrazków przez
+`tkinter.PhotoImage`.
     ```python
     """Zasoby potrzebne do gry."""
 
