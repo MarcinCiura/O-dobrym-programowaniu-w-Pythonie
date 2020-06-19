@@ -135,8 +135,7 @@ ale jeszcze nikomu nie stała się krzywda za użycie `x`.
 i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 ```python
     # LEPIEJ                                       # GORZEJ
-    ####                                           ####
-    # Jest tylko 1 egzemplarz stałej |None|.
+    #### Jest tylko 1 egzemplarz stałej |None|.    ####
     if spam is None:                               if spam == None:
         frobnicate()                                   frobnicate()
     ####                                           ####
@@ -148,8 +147,7 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
     ####                                           ####
     if not spam:                                   if spam is False:
         frobnicate()                                   frobnicate()
-    ####                                           ####
-    # Listy i krotki.
+    #### Listy i krotki.                           ####
     if spam_sequence:                              if len(spam_sequence) > 0:
         frobnicate()                                   frobnicate()
     ####                                           ####
@@ -157,6 +155,15 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
         frobnicate()                                   frobnicate()
     ####                                           ####
     if needle in haystack_dict:                    if needle in haystack_dict.keys():
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if spam == ham == eggs:                        if spam == cheese and ham == eggs:
+        frobnicate()                                   frobnicate()
+    ####                                           ####
+    if 0 <= spam < 10:                             if spam >= 0 and spam < 10:
+        frobnicate()                                   frobnicate()
+    #### Działa też bez nawiasów.                  ####
+    if not (0 <= spam < 10):                       if spam < 0 or spam >= 10:
         frobnicate()                                   frobnicate()
 ```
 
