@@ -157,7 +157,7 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
     if needle in haystack_dict:                    if needle in haystack_dict.keys():
         frobnicate()                                   frobnicate()
     ####                                           ####
-    if spam == ham == eggs:                        if spam == cheese and ham == eggs:
+    if spam == ham == eggs:                        if spam == eggs and ham == eggs:
         frobnicate()                                   frobnicate()
     ####                                           ####
     if 0 <= spam < 10:                             if spam >= 0 and spam < 10:
