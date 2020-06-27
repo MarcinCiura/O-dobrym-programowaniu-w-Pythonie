@@ -36,9 +36,13 @@ bez uściślania ich wersji, np.
 
 Proszę się zapoznać z treścią
 [poradnika dla programistów Pythona w firmie Google](https://google.github.io/styleguide/pyguide.html)
-i stosować do jego zasad. Nie wymagam tylko podawania
-w docstringach funkcji i metod sekcji `Args:`, `Returns:`
-i `Raises:` ani w docstringach klas sekcji `Attributes:`
+i stosować do jego zasad. Jego większa część powiela
+i objaśnia treść dokumentu
+[PEP 8](https://www.python.org/dev/peps/pep-0008/),
+uznawanego przez wszystkich programistów Pythona.
+Nie wymagam tylko podawania w docstringach funkcji
+i metod sekcji `Args:`, `Returns:` i `Raises:`
+ani w docstringach klas sekcji `Attributes:`
 ([punkty 3.8.3 i 3.8.4](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)).
 Nie obowiązują również zasady związane z Pythonem 2,
 czyli nie należy pisać `from __future__ import ...`,
@@ -50,6 +54,8 @@ jest Państwa przyjacielem. Proszę go zainstalować,
 przepuszczać przez niego swój kod
 i poprawiać wskazane przez niego miejsca
 ([punkt 2.1](https://google.github.io/styleguide/pyguide.html#21-lint)).
+Gdyby wszyscy z Państwa słuchali się Pylinta,
+większość poniższych punktów byłaby niepotrzebna.
 
 * Proszę używać instrukcji `from ... import ...`
 wyłącznie do importowania modułów z pakietów,
@@ -116,8 +122,10 @@ do nich też lepiej pasuje `styl_wężowy`
 znać tych samych skrótów, co my. Wniosek pierwszy:
 żadne skróty nie są dozwolone, zarówno w identyfikatorach,
 jak w docstringach i komentarzach, chyba że będą
-zrozumiałe dla każdego średnio rozgarniętego pięciolatka
+zrozumiałe dla każdego pięciolatka
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
+Przykładem zrozumiałego i powszechnie używanego
+skrótu jest `num_` zamiast `number_of_`.
 Wniosek drugi: tym bardziej niedozwolone są jednoliterowe
 identyfikatory
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
@@ -206,7 +214,7 @@ pod Windows.
 
 * Dłuższe ścieżki do plików dobrze skleja
 [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join).
-Nie trzeba pamiętać, które kawałki ścieżki się kończą na `'/'`,
+Nie trzeba pamiętać, które kawałki ścieżki kończą się na `'/'`,
 a które nie.
 
 * [System baz danych](https://pl.wikipedia.org/wiki/System_zarz%C4%85dzania_relacyjn%C4%85_baz%C4%85_danych),
@@ -425,37 +433,49 @@ muszą wystąpić w każdym programie.
 nie są wymagane na zaliczenie, ale trochę testów — tak.
 Chodzi o to, żeby Państwo przećwiczyli ich pisanie.
 W plikach z testami wystarczy jeden docstring na początku
-i nie trzeba zamieniać magicznych liczb itp. na
-zdefiniowane stałe. Ogólny wzór pliku `spam_test.py`
-do testowania zawartości pliku `spam.py` pokazano
-poniżej. Pełna dokumentacja modułu `unittest` znajduje się
+(pozostałe docstringi podpadają pod zasadę „lub w inny sposób
+oczywistych” powyżej) i nie trzeba zamieniać magicznych liczb itp.
+na zdefiniowane stałe. Szablon pliku `numbers_test.py`
+do testowania zawartości fikcyjnego pliku `numbers.py`
+zamieszczono poniżej. Pełna dokumentacja modułu `unittest`
+znajduje się
 [tutaj](https://docs.python.org/3/library/unittest.html).
 
     ```python
-    """Testy modułu spam."""
+    """Testy modułu numbers."""
 
     import unittest
+    import numbers
 
-    import spam
 
-
-    class HamTest(unittest.TestCase):
+    class ReaderTest(unittest.TestCase):
 
         def setUp(self):
-            self.ham = spam.Ham(price=42)
+            self.reader = numbers.Reader()
 
-        def test_open(self):
-            self.assertTrue(self.ham.open())
+        def test_read_0(self):
+            self.assertEqual(self.reader.read(0), 'zero')
 
-        def test_default_price(self):
-            self.assertEqual(self.ham.price, 42)
+        def test_read_7(self):
+            self.assertEqual(self.reader.read(7), 'siedem')
 
-        def test_set_price(self):
-            self.ham.set_price(39)
-            self.assertEqual(self.ham.price, 39)
+        def test_read_20(self):
+            self.assertEqual(self.reader.read(20), 'dwadzieścia')
+
+        def test_read_42(self):
+            self.assertEqual(self.reader.read(42), 'czterdzieści dwa')
+
+        ...
+
+        def test_read_negative(self):
+            self.assertEqual(self.reader.read(-14), 'minus czternaście')
+
+        def test_read_raises_on_invalid_input(self):
+            with self.assertRaises(numbers.InvalidNumberError):
+                self.reader.read('spam')
 
 
-    class EggsTest(unittest.TestCase):
+    class WriterTest(unittest.TestCase):
 
         ...
 
