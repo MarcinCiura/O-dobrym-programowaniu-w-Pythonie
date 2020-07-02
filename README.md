@@ -81,6 +81,21 @@ i naszych własnych modułów. Wewnątrz każdej sekcji nazwy
 pakietów i modułów należy uporządkować leksykograficznie
 ([punkt 3.13](https://google.github.io/styleguide/pyguide.html#313-imports-formatting)).
 
+* Nie ma przymusu pisania czegokolwiek zaraz po nawiasie
+okrągłym otwierającym listę parametrów
+([punkt 3.4](https://google.github.io/styleguide/pyguide.html#s3.4-indentation)).
+Zamiast
+```python
+    bardzo_długa_nazwa = bardzo_długi_tasiemiec.zjedz(spam,
+                                                      ham,
+                                                      eggs)
+```
+korzystniej wygląda
+```python
+    bardzo_długa_nazwa = bardzo_długi_tasiemiec.zjedz(
+        spam, ham, eggs)
+```
+
 * Proszę się wystrzegać zmiennych globalnych
 ([punkt 2.5](https://google.github.io/styleguide/pyguide.html#25-global-variables)).
 Często da się ich pozbyć przez zmianę architektury
@@ -208,9 +223,9 @@ co można mierzyć na różne sposoby:
 `FRAME_INTERVAL_SECONDS`, `document_age_days`,
 `page_width_mm`, `calculate_vat_pln()`.
 
-* Zamiast `r'spam\ham.png'`, co działa tylko pod Windows,
-lepiej pisać `'spam/ham.png'`, co działa również
-pod Windows.
+* Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
+co działa tylko pod Windows, lepiej pisać
+`'spam/ham.png'`, co działa również pod Windows.
 
 * Dłuższe ścieżki do plików dobrze skleja
 [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join).
@@ -223,7 +238,7 @@ którego używają Państwa programy, nazywa się SQLite, nie MySQL.
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
-a nigdy przez f-stringi ani `.format()`.
+a nigdy przez `+`, f-stringi ani `.format()`.
 Uzasadnienie
 [tutaj](https://xkcd.com/327/).
 Ku pamięci: w sposobach z pytajnikiem parametry
