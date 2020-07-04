@@ -40,6 +40,7 @@ i stosować do jego zasad. Jego większa część powiela
 i objaśnia treść dokumentu
 [PEP 8](https://www.python.org/dev/peps/pep-0008/),
 uznawanego przez wszystkich programistów Pythona.
+
 Nie wymagam tylko podawania w docstringach funkcji
 i metod sekcji `Args:`, `Returns:` i `Raises:`
 ani w docstringach klas sekcji `Attributes:`
@@ -47,6 +48,7 @@ ani w docstringach klas sekcji `Attributes:`
 Nie obowiązują również zasady związane z Pythonem 2,
 czyli nie należy pisać `from __future__ import ...`,
 dziedziczyć z `object` ani korzystać z biblioteki `six`.
+
 Najczęściej ignorowane zasady powtarzam poniżej.
 
 * [Pylint](https://pypi.org/project/pylint/)
@@ -62,7 +64,7 @@ wyłącznie do importowania modułów z pakietów,
 a nie poszczególnych klas, funkcji czy stałych z modułów
 ([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)),
 bo długi wykaz potrzebnych identyfikatorów
-`from grocery import spam, ham, eggs, cheese,...`
+`from grocery import spam, ham, eggs, cheese...`
 jest niewygodny, a krótki nie ma przewagi nad `import grocery`.
 A już broń Boże proszę nigdy nie pisać `from grocery import *`,
 bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
@@ -86,14 +88,14 @@ okrągłym otwierającym listę parametrów
 ([punkt 3.4](https://google.github.io/styleguide/pyguide.html#s3.4-indentation)).
 Zamiast
 ```python
-    bardzo_długa_nazwa = bardzo_długi_tasiemiec.zjedz(spam,
-                                                      ham,
-                                                      eggs)
+    bardzo_długa_nazwa = bardzo_długi_tasiemiec.zjedz(mielonka,
+                                                      szynka,
+                                                      jaja)
 ```
 korzystniej wygląda
 ```python
     bardzo_długa_nazwa = bardzo_długi_tasiemiec.zjedz(
-        spam, ham, eggs)
+        mielonka, szynka, jaja)
 ```
 
 * Proszę się wystrzegać zmiennych globalnych
@@ -426,7 +428,8 @@ Podobnie można zgrupować wczytywanie obrazków przez
             Assets.LARGE_FONT = pygame.font.Font('assets/Delicious-Roman.otf', 48)
             ...
     ```
-i w funkcji `main()` wywoływać metodę `assets.Assets.load()`.
+W funkcji `main()` należy wywołać funkcję `pygame.init()`,
+a następnie metodę `assets.Assets.load()`.
 
 * Koniec głównego modułu programu powinien się przedstawiać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
