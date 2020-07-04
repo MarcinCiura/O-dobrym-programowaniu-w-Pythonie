@@ -408,8 +408,8 @@ powkładać do funkcji, a te wywoływać z funkcji `main()`.
 
 * Na wczytywane z dysku obrazki, fonty, dźwięki itp.
 proponuję założyć plik `assets.py` o poniższej treści.
-Podobnie można zgrupować wczytywanie obrazków przez
-`tkinter.PhotoImage`.
+W funkcji `main()` należy wywołać funkcję `pygame.init()`,
+a następnie metodę `assets.Assets.load()`.
     ```python
     """Zasoby potrzebne do gry."""
 
@@ -428,8 +428,8 @@ Podobnie można zgrupować wczytywanie obrazków przez
             Assets.LARGE_FONT = pygame.font.Font('assets/Delicious-Roman.otf', 48)
             ...
     ```
-W funkcji `main()` należy wywołać funkcję `pygame.init()`,
-a następnie metodę `assets.Assets.load()`.
+Podobnie można zgrupować wczytywanie obrazków przez
+`tkinter.PhotoImage`.
 
 * Koniec głównego modułu programu powinien się przedstawiać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
