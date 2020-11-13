@@ -299,8 +299,8 @@ W programach lepiej jawnie wymieniać kolumny.
         frobnicate(spam, ham)                          frobnicate(spam_list[i], ham_list[i])
     ####                                           ####
     COINS = [                                      COINS = [
-        ('1 grosz', 0.01),                             ['1 grosz', 0.01],
-        ('2 grosze', 0.02),                            ['2 grosze', 0.02],
+        ('1 grosz', 0.01),                             ('1 grosz', 0.01),
+        ('2 grosze', 0.02),                            ('2 grosze', 0.02),
         ...,                                           ...,
     ]                                              ]
 
