@@ -331,8 +331,16 @@ tylko po to, żeby później było trzeba pisać
 (*getters*) i ustawiaczy (*setters*) robiących tylko
 `return self._spam` i `self._spam = spam` wystarczy
 nazwać ten atrybut `self.spam` i bezpośrednio go
-odczytywać i zapisywać. Jeśli potrzebny jest pobieracz,
-który robi coś więcej, pomoże nam dekorator
+odczytywać i zapisywać. Uwaga: wewnątrz metod danego
+obiektu można robić z jego atrybutami, co się nam żywnie
+podoba; nie dzieje się też nic strasznego, gdy kod poza
+obiektem bezpośrednio odczytuje jego atrybuty; natomiast
+bezpośrednie gmeranie z zewnątrz przy wartościach atrybutów
+jest w złym guście — w tym jednym wypadku warto stosować
+ustawiacze.
+
+* Jeśli potrzebny jest pobieracz, który robi coś więcej,
+pomoże nam dekorator
 [`@property`](https://docs.python.org/3/library/functions.html#property):
 ```python
     @property
