@@ -229,10 +229,11 @@ co można mierzyć na różne sposoby:
 co działa tylko pod Windows, lepiej pisać
 `'spam/ham.png'`, co działa również pod Windows.
 
-* Dłuższe ścieżki do plików dobrze skleja
-[`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join).
-Nie trzeba pamiętać, które kawałki ścieżki kończą się na `'/'`,
-a które nie.
+* Zamiast sklejać dłuższe ścieżki do plików przez `+`,
+lepiej użyć
+[`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join),
+bo wtedy nie trzeba pamiętać, które kawałki ścieżki
+kończą się na `'/'`, a które nie.
 
 * [System baz danych](https://pl.wikipedia.org/wiki/System_zarz%C4%85dzania_relacyjn%C4%85_baz%C4%85_danych),
 którego używają Państwa programy, nazywa się SQLite, nie MySQL.
