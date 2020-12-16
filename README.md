@@ -66,7 +66,7 @@ a nie poszczególnych klas, funkcji czy stałych z modułów
 bo długi wykaz potrzebnych identyfikatorów
 `from grocery import spam, ham, eggs, cheese...`
 jest niewygodny, a krótki nie ma przewagi nad `import grocery`.
-A już broń Boże proszę nigdy nie pisać `from grocery import *`,
+A już zdecydowanie proszę nigdy nie pisać `from grocery import *`,
 bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
 nieokreślonych identyfikatorów dezorientuje czytelnika.
 Rozumiem, że ta zasada może budzić Państwa opór,
@@ -226,11 +226,11 @@ co można mierzyć na różne sposoby:
 `page_width_mm`, `calculate_vat_pln()`.
 
 * Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
-co działa tylko pod Windows, lepiej pisać
+co działa tylko pod Windows, lepiej napisać
 `'spam/ham.png'`, co działa również pod Windows.
 
 * Zamiast sklejać dłuższe ścieżki do plików przez `+`,
-lepiej użyć
+lepiej używać
 [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join),
 bo wtedy nie trzeba pamiętać, które kawałki ścieżki
 kończą się na `'/'`, a które nie.
@@ -546,8 +546,6 @@ jest testować daną klasę.
     * dziwnych obejściach, nie korzystających z metody
       `__init__()` po to, żeby móc zwracać kod błędu.
 * Złe metody poznaje się po:
-    * korzystaniu ze swoich argumentów nie wprost,
-      tylko po to, żeby się dostać do innych obiektów;
     * naruszaniu
       [reguły Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
       czyli przechodzeniu przez więcej niż jeden obiekt,
