@@ -1,9 +1,15 @@
-# Jak zaliczyć projekt z Pythona
-## Poradnik dla studentów przedmiotu Języki Symboliczne
+# O dobrym programowaniu w Pythonie
 
-Zamiast powtarzać podobne komentarze w wielu projektach,
-spisałem je tutaj. Uwagi do tego dokumentu można zgłaszać
-przez *Issues*.
+Poniżej prostuję najczęściej spotykane uchybienia wobec
+dobrego stylu programowania w języku Python 3.
+
+Jestem wdzięczny uczestnikom laboratoriów z przedmiotu
+Programowanie symboliczne na Wydziale Informatyki
+Politechniki Krakowskiej w semestrze letnim roku akademickiego
+2020/2021 za programy pisane bez znajomości dobrych zasad.
+
+Zasady zebrane w niniejszym dokumencie pochodzą z wielu źródeł.
+Dodam szczegółowe podziękowania.
 
 ### 1. Pliki
 
@@ -235,9 +241,6 @@ lepiej używać
 bo wtedy nie trzeba pamiętać, które kawałki ścieżki
 kończą się na `'/'`, a które nie.
 
-* [System baz danych](https://pl.wikipedia.org/wiki/System_zarz%C4%85dzania_relacyjn%C4%85_baz%C4%85_danych),
-którego używają Państwa programy, nazywa się SQLite, nie MySQL.
-
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
 zmienne parametry wolno wstawiać do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
@@ -377,10 +380,10 @@ zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji, a każda będzie bazgrać
 po jedynym egzemplarzu atrybutu. Dlatego stosowanie
 zmiennych atrybutów klas jest prawie zawsze błędem.
-Dekorator
+Osoby ciekawe nowości zachęcam do zapoznania się
+z dekoratorem
 [`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass),
-poniekąd powiązany z tym zagadnieniem, jest nowy
-i nadobowiązkowy.
+który jest powiązany z tym zagadnieniem.
 
 * Statyczne nazwy dobre, dynamiczne nazwy złe.
 Dlatego zmienne w stylu
@@ -456,10 +459,7 @@ muszą wystąpić w każdym programie.
         main()
     ```
 
-* Dokładne testy do wszystkich klas i funkcji programu
-nie są wymagane na zaliczenie, ale trochę testów — tak.
-Chodzi o to, żeby Państwo przećwiczyli ich pisanie.
-W plikach z testami wystarczy jeden docstring na początku
+* W plikach z testami wystarczy jeden docstring na początku
 (pozostałe docstringi podpadają pod zasadę „lub w inny sposób
 oczywistych” powyżej) i nie trzeba zamieniać magicznych liczb itp.
 na zdefiniowane stałe. Szablon pliku `numbers_test.py`
