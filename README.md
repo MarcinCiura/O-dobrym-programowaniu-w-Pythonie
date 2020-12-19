@@ -562,7 +562,7 @@ jest testować daną klasę.
       na rozłącznych zbiorach atrybutów;
     * atrybutach zmienianych z zewnątrz obiektu
       przez bezpośrednie przypisania do obiektu
-      zamiast korzystania po bożemu z jego metod.
+      zamiast naturalnego korzystania z jego metod.
 
 ### Miłego programowania!
 
