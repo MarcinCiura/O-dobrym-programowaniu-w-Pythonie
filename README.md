@@ -1,15 +1,23 @@
 # O dobrym programowaniu w Pythonie
 
-Poniżej prostuję najczęściej spotykane uchybienia wobec
-dobrego stylu programowania w języku Python 3.
+W tym dokumencie prostuję najczęściej spotykane uchybienia
+wobec dobrego stylu programowania w Pythonie 3.x
 
-Jestem wdzięczny uczestnikom laboratoriów z przedmiotu
-Programowanie symboliczne na Wydziale Informatyki
-Politechniki Krakowskiej w semestrze letnim roku akademickiego
-2020/2021 za programy pisane bez znajomości dobrych zasad.
+Dziękuję zarówno osobom, od których nauczyłem się
+poniższych zasad, jak i studentom, których uczyłem:
+poniżej streściłem te zasady, których nieznajomość
+najczęściej dostrzegałem w programach zaliczeniowych.
 
-Zasady zebrane w niniejszym dokumencie pochodzą z wielu źródeł.
-Dodam szczegółowe podziękowania.
+![Znak domeny publicznej](http://i.creativecommons.org/p/mark/1.0/88x31.png)
+
+W myśl zasady „darmoście wzięli, darmo dawajcie”
+przekazuję niniejszy dokument do domeny publicznej.
+Wolno go zwielokrotniać, zmieniać i rozpowszechniać,
+nawet w celach komercyjnych, bez pytania o zgodę.
+
+Do tych czytelników, którym przydadzą się poniższe rady,
+mam osobistą prośbę: pomyślcie o jakiejś osobie,
+która okazała wam dobroć, i podziękujcie jej osobiście.
 
 ### 1. Pliki
 
@@ -527,6 +535,11 @@ Po to są moduły, dziedziczenie, metody, funkcje, pętle itp.,
 żeby z nich korzystać. W łagodniejszych przypadkach,
 kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
 [„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
+* Program, który ma za dużo klas,
+jest lepszy od programu, który ma ich za mało.
+* Dziedziczenie niepotrzebnie komplikuje programy.
+Łatwiejsze i ogólniejsze jest
+[składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
 * Dobry konstruktor poznaje się po tym, że tylko
 łączy w całość przekazane mu inne, wcześniej
 skonstruowane obiekty. Dzięki takiemu
