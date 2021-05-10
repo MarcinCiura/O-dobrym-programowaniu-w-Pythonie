@@ -3,19 +3,19 @@
 W tym dokumencie prostuję najczęściej spotykane uchybienia
 wobec dobrego stylu programowania w Pythonie 3.x
 
-Dziękuję zarówno osobom, od których nauczyłem się
+Dziękuję zarówno programistom, od których nauczyłem się
 poniższych zasad, jak i studentom, których uczyłem:
-poniżej streściłem te zasady, których nieznajomość
+poniżej streszczam te zasady, których nieznajomość
 najczęściej dostrzegałem w programach zaliczeniowych.
 
 ![Znak domeny publicznej](http://i.creativecommons.org/p/mark/1.0/88x31.png)
 
-W myśl zasady „darmoście wzięli, darmo dawajcie”
+W myśl zasady „darmo wzięliście, darmo dawajcie”
 przekazuję niniejszy dokument do domeny publicznej.
 Wolno go zwielokrotniać, zmieniać i rozpowszechniać,
 nawet w celach komercyjnych, bez pytania o zgodę.
 
-Do tych czytelników, którym przydadzą się poniższe rady,
+Do czytelników, którym przydadzą się poniższe rady,
 mam osobistą prośbę: pomyślcie o jakiejś osobie,
 która okazała wam dobroć, i podziękujcie jej osobiście.
 
@@ -32,15 +32,15 @@ Kto nie dodał tego pliku przy zakładaniu repozytorium,
 znajdzie odpowiednią treść.
 
 * Nazwy bibliotek zewnętrznych niezbędnych do działania programu
-należy umieścić w pliku `requirements.txt`
-(zewnętrzne znaczy „nie te, co się zainstalowały z Pythonem”;
-nie robić pliku, jak nie ma z czym).
+umieszczamy w pliku `requirements.txt`
+(zewnętrzne znaczy „nie te, które zainstalowaliśmy razem z Pythonem”;
+nie zakładamy pliku `requirements.txt`, jeśli byłby pusty).
 Dzięki temu przez polecenie `pip install -r requirements.txt`
 można je wszystkie naraz zainstalować.
 [Tutaj](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file)
-przykładowa treść tego pliku. Sądzę, że w większości
-Państwa projektów wystarczy wymienić nazwy bibliotek
-bez uściślania ich wersji, np.
+przykładowa treść pliku `requirements.txt`. Przypuszczam,
+że w większości Państwa projektów wystarczy wymienić
+nazwy bibliotek bez uściślania ich wersji, np.
     ```
     numpy
     pygame
@@ -48,10 +48,10 @@ bez uściślania ich wersji, np.
 
 ### 2. Uwagi drobiazgowe
 
-Proszę się zapoznać z treścią
+Zachęcam do zapoznania się z treścią
 [poradnika dla programistów Pythona w firmie Google](https://google.github.io/styleguide/pyguide.html)
-i stosować do jego zasad. Jego większa część powiela
-i objaśnia treść dokumentu
+i stosowania do jego zasad. Większa część tego poradnika
+powtarza i objaśnia treść dokumentu
 [PEP 8](https://www.python.org/dev/peps/pep-0008/),
 uznawanego przez wszystkich programistów Pythona.
 
@@ -60,7 +60,7 @@ i metod sekcji `Args:`, `Returns:` i `Raises:`
 ani w docstringach klas sekcji `Attributes:`
 ([punkty 3.8.3 i 3.8.4](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)).
 Nie obowiązują również zasady związane z Pythonem 2,
-czyli nie należy pisać `from __future__ import ...`,
+czyli nie piszemy `from __future__ import ...`,
 dziedziczyć z `object` ani korzystać z biblioteki `six`.
 
 Najczęściej ignorowane zasady powtarzam poniżej.
@@ -82,7 +82,7 @@ bo długi wykaz potrzebnych identyfikatorów
 jest niewygodny, a krótki nie ma przewagi nad `import grocery`.
 A już zdecydowanie proszę nigdy nie pisać `from grocery import *`,
 bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
-nieokreślonych identyfikatorów dezorientuje czytelnika.
+nieokreślonych identyfikatorów może dezorientować czytelnika.
 Rozumiem, że ta zasada może budzić Państwa opór,
 ale my tu symulujemy pracę w firmie.
 W projektach tworzonych przez zespół
@@ -94,7 +94,7 @@ bywają bardziej niedorzeczne. Proszę się przyzwyczajać.
 złożone z instrukcji `import`, które powinnny dotyczyć
 kolejno: biblioteki standardowej, bibliotek zewnętrznych
 i naszych własnych modułów. Wewnątrz każdej sekcji nazwy
-pakietów i modułów należy uporządkować leksykograficznie
+pakietów i modułów porządkujemy leksykograficznie
 ([punkt 3.13](https://google.github.io/styleguide/pyguide.html#313-imports-formatting)).
 
 * Nie ma przymusu pisania czegokolwiek zaraz po nawiasie
@@ -112,30 +112,31 @@ korzystniej wygląda
         mielonka, szynka, jaja)
 ```
 
-* Proszę się wystrzegać zmiennych globalnych
+* Wystrzegamy się zmiennych globalnych
 ([punkt 2.5](https://google.github.io/styleguide/pyguide.html#25-global-variables)).
 Często da się ich pozbyć przez zmianę architektury
-kodu z proceduralnej na obiektową tak, żeby stały
-się atrybutami instancji klasy.
+kodu z proceduralnej na obiektową, dzięki czemu
+stają się atrybutami instancji klasy.
 
-* Globalne stałe są natomiast mile widziane,
-a nawet wymagane zamiast
-[magicznych liczb, napisów czy większych obiektów](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants).
-Na przykład zamiast `7` należy zdefiniować stałą
+* Natomiast globalne stałe są mile widziane,
+a nawet wymagane zamiast magicznych liczb, napisów
+i większych obiektów
+(artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants)) w Wikipedii).
+Na przykład zamiast `7` definiujemy stałą
 `BOARD_WIDTH = 7`, zamiast odróżniania kierunku
 przy użyciu zmiennej o wartości `'left'` albo `'right'`
-— zdefiniować stałe `LEFT, RIGHT = range(2)`
+— definiujemy stałe `LEFT, RIGHT = range(2)`
 (miłośnikom nowości polecam
 [`enum.Enum`](https://docs.python.org/3/library/enum.html#creating-an-enum)),
-zamiast krotki `(38, 139, 210)` — stałą
+zamiast krotki `(38, 139, 210)` — definiujemy stałą
 `BACKGROUND_COLOR = (38, 139, 210)`.
 Nazwa stałej powinna odpowiadać jej zastosowaniu,
-nie zawartości: gdyby ostatnią stałą nazwać `BLUE`,
-doszłoby do absurdu, jeśli kiedyś zechcieliby Państwo
+a nie zawartości: gdyby ostatnia stała nosiła nazwę `BLUE`,
+doszłoby do absurdu, gdybyśmy kiedyś chcieli
 zmienić tło na pomarańczowe. Stałe zwyczajowo
 zapisujemy `WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
-Nie od rzeczy będzie przypomnieć, że XXI wiek
+Nie od rzeczy będzie przypomnienie, że XXI wiek
 trwa już dość długo i w identyfikatorach można swobodnie
 korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 
@@ -151,30 +152,32 @@ do nich też lepiej pasuje `styl_wężowy`
 
 * Warto pamiętać, że czytelnik programu nie musi
 znać tych samych skrótów, co my. Wniosek pierwszy:
-żadne skróty nie są dozwolone, zarówno w identyfikatorach,
-jak w docstringach i komentarzach, chyba że będą
+nie stosujemy skrótów, ani w identyfikatorach,
+ani w docstringach i komentarzach, chyba że są one
 zrozumiałe dla każdego pięciolatka
 ([punkt 3.16](https://google.github.io/styleguide/pyguide.html#316-naming)).
-Przykładem zrozumiałego i powszechnie używanego
-skrótu jest `num_` zamiast `number_of_`.
-Wniosek drugi: tym bardziej niedozwolone są jednoliterowe
-identyfikatory
+Przykład zrozumiałego i powszechnie używanego
+skrótu to `num_` zamiast `number_of_`.
+Wniosek drugi: tym bardziej nie stosujemy jednoliterowych
+identyfikatorów
 ([punkt 3.16.1](https://google.github.io/styleguide/pyguide.html#s3.16-naming)).
 Pierwszy wyjątek to `i`, `j`, `k` jako liczniki pętli,
 czyli zmienne całkowite generowane przez funkcję `range()`.
-Drugi wyjątek to litery pasujące do typu danych w funkcjach anonimowych
-oraz wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
+Drugi wyjątek to litery pasujące do typu danych
+w funkcjach anonimowych i wyrażeniach listowych, słownikowych, zbiorowych i generatorowych,
 czyli po naszemu *lambda expressions*,
 *list/dict/set comprehensions* i *generator expressions*.
-Często trudno wyczuć, jaka litera pasuje,
-ale jeszcze nikomu nie stała się krzywda za użycie `x`.
+Na przykład litera `c` pasuje do pojedynczych znaków (`character`),
+litera `s` do napisów (`string`) itp.
+Jeśli trudno wyczuć, jaka litera pasuje do typu danych,
+używamy po prostu litery `x`.
 
 * Poniżej wzorce i antywzorce instrukcji warunkowych
 ([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)
 i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 ```python
     # LEPIEJ                                       # GORZEJ
-    #### Jest tylko 1 egzemplarz stałej |None|.    ####
+    #### Istnieje jeden egzemplarz stałej |None|.  ####
     if spam is None:                               if spam == None:
         frobnicate()                                   frobnicate()
     ####                                           ####
@@ -201,7 +204,7 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
     ####                                           ####
     if 0 <= spam < 10:                             if spam >= 0 and spam < 10:
         frobnicate()                                   frobnicate()
-    #### Działa też bez nawiasów.                  ####
+    #### Poniższy warunek działa też bez nawiasów. ####
     if not (0 <= spam < 10):                       if spam < 0 or spam >= 10:
         frobnicate()                                   frobnicate()
 ```
@@ -210,17 +213,17 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 Ładne są za to f-stringi
 ([punkt 3.10](https://google.github.io/styleguide/pyguide.html#310-strings)).
 
-* Wymagane są docstringi do modułów, klas, metod
+* Piszemy docstringi do modułów, klas, metod
 i funkcji, chyba że jednowierszowych lub w inny
-sposób oczywistych
-([punkt 3.8](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
-Należy się zapoznać z zasadami pisania docstringów
-i ich przestrzegać. W skrócie: pierwszy wiersz ma zawierać
-zwięzłe zdanie (na końcu zdania stawiamy kropkę)
+sposób oczywistych.
+Proszę się zapoznać z zasadami pisania docstringów
+([punkt 3.8](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings))
+i ich przestrzegać. W skrócie: w pierwszym wierszu
+docstringa wpisujemy zwięzłe zdanie (na końcu zdania stawiamy kropkę)
 opisujące działanie metody lub funkcji, np.
 `"""Zwraca indeks naciśniętego przycisku."""`
 Jeśli potrzebne jest dłuższe objaśnienie,
-należy je podać wewnątrz tego samego napisu,
+podajemy je wewnątrz tego samego napisu,
 oddzielone pustym wierszem.
 
 * Wiersze programu nie powinny być za długie.
@@ -233,42 +236,41 @@ ze sobą łączą i wyglądają lepiej niż ze znakiem obciachu
 
 ### 3. Rozmaite rady
 
-* [Dobrym zwyczajem](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy)
-są przyrostki z jednostkami w nazwach wszystkiego,
+* Dobrym zwyczajem są przyrostki z jednostkami w nazwach wszystkiego,
 co można mierzyć na różne sposoby:
 `FRAME_INTERVAL_SECONDS`, `document_age_days`,
 `page_width_mm`, `calculate_vat_pln()`.
+Ku przestrodze: artykuł [Mars Climate Orbiter](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy) w Wikipedii.
 
 * Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
-co działa tylko pod Windows, lepiej napisać
+co działa tylko pod Windows, lepiej jest napisać
 `'spam/ham.png'`, co działa również pod Windows.
 
 * Zamiast sklejać dłuższe ścieżki do plików przez `+`,
 lepiej używać
 [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join),
-bo wtedy nie trzeba pamiętać, które kawałki ścieżki
+bo wtedy nie musimy pamiętać, które kawałki ścieżki
 kończą się na `'/'`, a które nie.
 
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
-zmienne parametry wolno wstawiać do SQL-a tylko przez
+zmienne parametry wstawiamy do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
 a nigdy przez `+`, f-stringi ani `.format()`.
-Uzasadnienie
-[tutaj](https://xkcd.com/327/).
+[Uzasadnienie tej zasady w komiksie XKCD nr 327](https://xkcd.com/327/).
 Ku pamięci: w sposobach z pytajnikiem parametry
 po stronie Pythona muszą być w krotce lub liście,
-więc jak jest jeden, pisać `(spam,)` lub `[spam]`.
+więc kiedy parametr jest jeden, piszemy `(spam,)` lub `[spam]`.
 
 * Z drugiej strony przy zapytaniach z dynamicznymi nazwami kolumn
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
 * Polecam poniższe szablony czytania z bazy danych.
-O metodzie `.fetchall()` najlepiej zapomnieć.
+O metodzie `.fetchall()` lepiej zapomnieć.
 ```python
     # O ile kolumn prosi SELECT, tyle elementów mają
     # krotki generowane przez |cursor.execute()|.
-    # 1-elementowe krotki rozpakowuje się swoiście.
+    # 1-elementowe krotki trzeba rozpakowywać swoiście.
     spam_list = []
     for (spam,) in cursor.execute(  # Działa też spam, lub [spam].
             """
@@ -293,7 +295,7 @@ O metodzie `.fetchall()` najlepiej zapomnieć.
 
 * Żeby się dowiedzieć, jakie kolumny zwraca `SELECT *`,
 trzeba znaleźć kod tworzący tabelę.
-W programach lepiej jawnie wymieniać kolumny.
+Dlatego w programach jawnie wymieniamy kolumny po `SELECT`.
 
 * Python to nie C. Poniżej wzorce i antywzorce pętli.
 ```python
@@ -333,9 +335,9 @@ W programach lepiej jawnie wymieniać kolumny.
 ```
 
 * Python to nie Java, odsłona pierwsza.
-Zbyteczne jest tworzenie osobnych plików
+Nie tworzymy osobnych plików
 na małe klasy w stylu `PrzechowywaczMonet`
-tylko po to, żeby później było trzeba pisać
+tylko po to, żeby później pisać
 `import PrzechowywaczMonet` i
 `przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`.
 
@@ -344,9 +346,9 @@ tylko po to, żeby później było trzeba pisać
 `return self._spam` i `self._spam = spam` wystarczy
 nazwać ten atrybut `self.spam` i bezpośrednio go
 odczytywać i zapisywać. Uwaga: wewnątrz metod danego
-obiektu można robić z jego atrybutami, co się nam żywnie
-podoba; nie dzieje się też nic strasznego, gdy kod poza
-obiektem bezpośrednio odczytuje jego atrybuty; natomiast
+obiektu możemy robić z jego atrybutami, co się nam żywnie
+podoba; jest też w porządku, gdy kod poza obiektem
+bezpośrednio odczytuje jego atrybuty; natomiast
 bezpośrednie gmeranie z zewnątrz przy wartościach atrybutów
 jest w złym guście — w tym jednym wypadku warto stosować
 ustawiacze.
@@ -361,23 +363,22 @@ pomoże nam dekorator
         return sum(self._spam_list)
 ```
 
-* Należy odróżniać atrybuty klasy, które są
-inicjalizowane tak:
+* Proszę odróżniać atrybuty klasy, które inicjalizujemy tak:
 ```python
     class Spam:
         ham = 42
 ```
-od atrybutów instancji, które są inicjalizowane
+od atrybutów instancji, które inicjalizujemy
 w konstruktorze:
 ```python
     class Spam:
         def __init__(self):
             self.ham = 42
 ```
-Te pierwsze mają wartość początkową nadawaną tylko raz
+Atrybuty klas mają wartość początkową nadawaną tylko raz
 i są wspólne dla wszystkich instancji klasy
-(można się do nich odwoływać przez `Spam.ham` lub
-`self.ham`), a te drugie są osobne w każdej instancji
+(możemy się do nich odwoływać przez `Spam.ham` lub
+`self.ham`), a atrybuty instancji są osobne w każdej instancji
 (`self.ham`). Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
 klasy zmienia wartość w trakcie działania programu,
@@ -423,8 +424,8 @@ zyskują po zmianie na
 — takich jak wypisywanie tekstu, otwieranie okien,
 wczytywanie (zapisywanie?!) plików, wystrzeliwanie
 pocisków balistycznych itp. Są to zawsze skutki
-kodu lewitującego poza funkcjami. Taki kod należy
-powkładać do funkcji, a te wywoływać z funkcji `main()`.
+kodu lewitującego poza funkcjami. Taki kod wkładamy
+do funkcji, a te wywołujemy z funkcji `main()`.
 
 * Na wczytywane z dysku obrazki, fonty, dźwięki itp.
 proponuję założyć plik `assets.py` o poniższej treści.
@@ -451,7 +452,7 @@ a następnie metodę `assets.Assets.load()`.
 Podobnie można zgrupować wczytywanie obrazków przez
 `tkinter.PhotoImage`.
 
-* Koniec głównego modułu programu powinien się przedstawiać
+* Koniec głównego modułu programu powinien wyglądać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
 muszą wystąpić w każdym programie.
 
@@ -473,8 +474,7 @@ oczywistych” powyżej) i nie trzeba zamieniać magicznych liczb itp.
 na zdefiniowane stałe. Szablon pliku `numbers_test.py`
 do testowania zawartości fikcyjnego pliku `numbers.py`
 zamieszczono poniżej. Pełna dokumentacja modułu `unittest`
-znajduje się
-[tutaj](https://docs.python.org/3/library/unittest.html).
+można znaleźć [tutaj](https://docs.python.org/3/library/unittest.html).
 
     ```python
     """Testy modułu numbers."""
@@ -521,10 +521,10 @@ znajduje się
 
 * Widok kolorów w stylu `(255, 0, 0)` przypomina mi czasy
 butelek z mlekiem za progiem mieszkania, magnetofonów kasetowych
-i 16-kolorowych trybów graficznych. Z 16.777.216 barw da się
-wybrać ciekawsze. Ja lubię paletę
+i 16-kolorowych trybów graficznych. Wśród 16.777.216 barw możemy
+znaleźć ciekawsze. Ja lubię paletę
 [Solarized](https://ethanschoonover.com/solarized/);
-jest też mnogość innych.
+jest też mnogość innych palet.
 
 ### 4. Rady wyższego poziomu
 
@@ -535,18 +535,18 @@ Po to są moduły, dziedziczenie, metody, funkcje, pętle itp.,
 żeby z nich korzystać. W łagodniejszych przypadkach,
 kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
 [„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
-* Program, który ma za dużo klas,
-jest lepszy od programu, który ma ich za mało.
+* Lepszy jest program, który ma za dużo klas,
+niż program, który ma ich za mało.
 * Dziedziczenie niepotrzebnie komplikuje programy.
 Łatwiejsze i ogólniejsze jest
 [składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
-* Dobry konstruktor poznaje się po tym, że tylko
-łączy w całość przekazane mu inne, wcześniej
+* Dobre konstruktory poznajemy po tym, że tylko
+łączą w całość przekazane mu inne, wcześniej
 skonstruowane obiekty. Dzięki takiemu
 [„wstrzykiwaniu zależności”](https://pl.wikipedia.org/wiki/Wstrzykiwanie_zale%C5%BCno%C5%9Bci)
 (*dependency injection*) znacznie łatwiej
-jest testować daną klasę.
-* Zły konstruktor poznaje się po:
+jest testować klasy.
+* Złe konstruktory poznajemy po:
     * wywołaniach innych konstruktorów
       (`super().__init__()` jest OK);
     * wywołaniach funkcji, które zmieniają globalny
@@ -558,7 +558,7 @@ jest testować daną klasę.
       doinicjować inną metodą;
     * dziwnych obejściach, nie korzystających z metody
       `__init__()` po to, żeby móc zwracać kod błędu.
-* Złe metody poznaje się po:
+* Złe metody poznajemy po:
     * naruszaniu
       [reguły Demeter](https://pl.wikipedia.org/wiki/Prawo_Demeter),
       czyli przechodzeniu przez więcej niż jeden obiekt,
@@ -569,7 +569,7 @@ jest testować daną klasę.
       (gwoli jasności: w regule Demeter nie chodzi o liczenie kropek,
       tylko o nierozmawianie z obiektami oddalonymi od `self`;
       takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
-* Złe klasy poznaje się po:
+* Złe klasy poznajemy po:
     * opisie zawierającym spójnik „i”;
     * rozłącznych zbiorach metod, które operują
       na rozłącznych zbiorach atrybutów;
