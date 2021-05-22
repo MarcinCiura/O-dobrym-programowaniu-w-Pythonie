@@ -382,13 +382,13 @@ i są wspólne dla wszystkich instancji klasy
 (`self.ham`). Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
 klasy zmienia wartość w trakcie działania programu,
-to prosimy się o kłopoty. Nawet gdy przewidujemy
+to prosimy się o kłopoty. Nawet jeśli przewidujemy
 istnienie podczas działania programu tylko jednej
 instancji klasy (np. `Game`), to przy testowaniu
 zupełnie normalne jest tworzenie jedna po drugiej
-coraz nowszych instancji, a każda będzie bazgrać
-po jedynym egzemplarzu atrybutu. Dlatego stosowanie
-zmiennych atrybutów klas jest prawie zawsze błędem.
+coraz nowszych instancji. Jeśli te instancje
+będą zmieniać wartość współdzielonego atrybutu,
+to może dojść do niepożądanych skutków.
 Osoby ciekawe nowości zachęcam do zapoznania się
 z dekoratorem
 [`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass),
@@ -537,6 +537,11 @@ kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
 [„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
 * Lepszy jest program, który ma za dużo klas,
 niż program, który ma ich za mało.
+* Łatwiej zrozumiemy sprawdzanie wyrażeń logicznych,
+gdy będziemy unikać negacji: zarówno operatora `not`,
+jak wartości o zanegowanym sensie. Na przykład zamiast
+pisać `if not x.is_impossible:` można przerobić program
+i napisać `if x.is_possible:`.
 * Dziedziczenie niepotrzebnie komplikuje programy.
 Łatwiejsze i ogólniejsze jest
 [składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
@@ -564,8 +569,7 @@ jest testować klasy.
       czyli przechodzeniu przez więcej niż jeden obiekt,
       np. `self.pies.ogon.merdaj()` zamiast poprawnego
       `self.pies.merdaj()`, przy czym zmyłka polega na tym,
-      że błąd daje o sobie znać tutaj,
-      a leży w niedorobionej klasie `Pies`
+      że błąd daje o sobie znać tutaj, a leży w klasie `Pies`
       (gwoli jasności: w regule Demeter nie chodzi o liczenie kropek,
       tylko o nierozmawianie z obiektami oddalonymi od `self`;
       takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
