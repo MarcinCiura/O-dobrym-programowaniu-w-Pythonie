@@ -3,15 +3,14 @@
 W tym dokumencie prostuję najczęściej spotykane uchybienia
 wobec dobrego stylu programowania w Pythonie 3.x
 
-Dziękuję zarówno programistom, od których nauczyłem się
+Jestem wdzięczny zarówno programistom, od których nauczyłem się
 poniższych zasad, jak i studentom, których uczyłem:
 poniżej streszczam te zasady, których nieznajomość
 najczęściej dostrzegałem w programach zaliczeniowych.
 
 ![Znak domeny publicznej](http://i.creativecommons.org/p/mark/1.0/88x31.png)
 
-W myśl zasady „darmo wzięliście, darmo dawajcie”
-przekazuję niniejszy dokument do domeny publicznej.
+Przekazuję niniejszy dokument do domeny publicznej.
 Wolno go zwielokrotniać, zmieniać i rozpowszechniać,
 nawet w celach komercyjnych, bez pytania o zgodę.
 
@@ -27,9 +26,9 @@ np. `desktop.ini`.
 
 * Wskazane jest za to dodanie pliku `.gitignore`
 o treści odpowiedniej dla projektów pisanych w Pythonie.
-Kto nie dodał tego pliku przy zakładaniu repozytorium,
+Osoby, które nie dodały tego pliku przy zakładaniu repozytorium,
 [tutaj](https://github.com/github/gitignore/blob/master/Python.gitignore)
-znajdzie odpowiednią treść.
+znajdą odpowiednią treść.
 
 * Nazwy bibliotek zewnętrznych niezbędnych do działania programu
 umieszczamy w pliku `requirements.txt`
@@ -50,17 +49,17 @@ nazwy bibliotek bez uściślania ich wersji, np.
 
 Zachęcam do zapoznania się z treścią
 [poradnika dla programistów Pythona w firmie Google](https://google.github.io/styleguide/pyguide.html)
-i stosowania do jego zasad. Większa część tego poradnika
+i stosowania się do jego zasad. Większa część tego poradnika
 powtarza i objaśnia treść dokumentu
 [PEP 8](https://www.python.org/dev/peps/pep-0008/),
-uznawanego przez wszystkich programistów Pythona.
+który uznają wszystcy programiści Pythona.
 
 Nie wymagam tylko podawania w docstringach funkcji
 i metod sekcji `Args:`, `Returns:` i `Raises:`
 ani w docstringach klas sekcji `Attributes:`
 ([punkty 3.8.3 i 3.8.4](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)).
 Nie obowiązują również zasady związane z Pythonem 2,
-czyli nie piszemy `from __future__ import ...`,
+czyli nie należy pisać `from __future__ import ...`,
 dziedziczyć z `object` ani korzystać z biblioteki `six`.
 
 Najczęściej ignorowane zasady powtarzam poniżej.
@@ -70,11 +69,11 @@ jest Państwa przyjacielem. Proszę go zainstalować,
 przepuszczać przez niego swój kod
 i poprawiać wskazane przez niego miejsca
 ([punkt 2.1](https://google.github.io/styleguide/pyguide.html#21-lint)).
-Gdyby wszyscy z Państwa słuchali się Pylinta,
+Gdyby wszyscy z Państwa słuchali Pylinta,
 większość poniższych punktów byłaby niepotrzebna.
 
 * Proszę używać instrukcji `from ... import ...`
-wyłącznie do importowania modułów z pakietów,
+tylko do importowania modułów z pakietów,
 a nie poszczególnych klas, funkcji czy stałych z modułów
 ([punkt 2.2](https://google.github.io/styleguide/pyguide.html#22-imports)),
 bo długi wykaz potrzebnych identyfikatorów
@@ -82,7 +81,7 @@ bo długi wykaz potrzebnych identyfikatorów
 jest niewygodny, a krótki nie ma przewagi nad `import grocery`.
 A już zdecydowanie proszę nigdy nie pisać `from grocery import *`,
 bo zaśmiecanie przestrzeni nazw nieokreśloną liczbą
-nieokreślonych identyfikatorów może dezorientować czytelnika.
+nieokreślonych identyfikatorów dezorientuje czytelnika programu.
 Rozumiem, że ta zasada może budzić Państwa opór,
 ale my tu symulujemy pracę w firmie.
 W projektach tworzonych przez zespół
@@ -91,7 +90,7 @@ Poza tym standardy firm mniejszego kalibru niż Google
 bywają bardziej niedorzeczne. Proszę się przyzwyczajać.
 
 * Można rozdzielać pustymi wierszami sąsiednie sekcje
-złożone z instrukcji `import`, które powinnny dotyczyć
+złożone z instrukcji `import`. Sekcje powinnny dotyczyć
 kolejno: biblioteki standardowej, bibliotek zewnętrznych
 i naszych własnych modułów. Wewnątrz każdej sekcji nazwy
 pakietów i modułów porządkujemy leksykograficznie
@@ -118,7 +117,7 @@ Często da się ich pozbyć przez zmianę architektury
 kodu z proceduralnej na obiektową, dzięki czemu
 stają się atrybutami instancji klasy.
 
-* Natomiast globalne stałe są mile widziane,
+* Globalne stałe są natomiast mile widziane,
 a nawet wymagane zamiast magicznych liczb, napisów
 i większych obiektów
 (artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants)) w Wikipedii).
@@ -170,7 +169,7 @@ czyli po naszemu *lambda expressions*,
 Na przykład litera `c` pasuje do pojedynczych znaków (`character`),
 litera `s` do napisów (`string`) itp.
 Jeśli trudno wyczuć, jaka litera pasuje do typu danych,
-używamy po prostu litery `x`.
+można użyć litery `x`.
 
 * Poniżej wzorce i antywzorce instrukcji warunkowych
 ([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)
@@ -213,17 +212,18 @@ i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 Ładne są za to f-stringi
 ([punkt 3.10](https://google.github.io/styleguide/pyguide.html#310-strings)).
 
-* Piszemy docstringi do modułów, klas, metod
-i funkcji, chyba że jednowierszowych lub w inny
-sposób oczywistych.
+* Dodajemy docstringi do modułów, klas, metod
+i funkcji, chyba że są to metody lub funkcje jednowierszowe
+lub w inny sposób oczywiste.
 Proszę się zapoznać z zasadami pisania docstringów
 ([punkt 3.8](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings))
 i ich przestrzegać. W skrócie: w pierwszym wierszu
-docstringa wpisujemy zwięzłe zdanie (na końcu zdania stawiamy kropkę)
+docstringa wpisujemy zwięzłe zdanie
 opisujące działanie metody lub funkcji, np.
 `"""Zwraca indeks naciśniętego przycisku."""`
+(na końcu zdania stawiamy kropkę).
 Jeśli potrzebne jest dłuższe objaśnienie,
-podajemy je wewnątrz tego samego napisu,
+dodajemy je wewnątrz tego samego napisu,
 oddzielone pustym wierszem.
 
 * Wiersze programu nie powinny być za długie.
@@ -244,7 +244,8 @@ Ku przestrodze: artykuł [Mars Climate Orbiter](https://pl.wikipedia.org/wiki/Ma
 
 * Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
 co działa tylko pod Windows, lepiej jest napisać
-`'spam/ham.png'`, co działa również pod Windows.
+`'spam/ham.png'`, co działa pod każdym systemem
+operacyjnym, w tym pod Windows.
 
 * Zamiast sklejać dłuższe ścieżki do plików przez `+`,
 lepiej używać
@@ -256,7 +257,7 @@ kończą się na `'/'`, a które nie.
 zmienne parametry wstawiamy do SQL-a tylko przez
 [`?`, `?42`, `:spam`, `$spam` lub `@spam`](https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute),
 a nigdy przez `+`, f-stringi ani `.format()`.
-[Uzasadnienie tej zasady w komiksie XKCD nr 327](https://xkcd.com/327/).
+[O tej zasadzie w komiksie XKCD nr 327](https://xkcd.com/327/).
 Ku pamięci: w sposobach z pytajnikiem parametry
 po stronie Pythona muszą być w krotce lub liście,
 więc kiedy parametr jest jeden, piszemy `(spam,)` lub `[spam]`.
@@ -389,7 +390,7 @@ zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji. Jeśli te instancje
 będą zmieniać wartość współdzielonego atrybutu,
 to może dojść do niepożądanych skutków.
-Osoby ciekawe nowości zachęcam do zapoznania się
+Zachęcam osoby ciekawe nowości do zapoznania się
 z dekoratorem
 [`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass),
 który jest powiązany z tym zagadnieniem.
@@ -473,7 +474,7 @@ muszą wystąpić w każdym programie.
 oczywistych” powyżej) i nie trzeba zamieniać magicznych liczb itp.
 na zdefiniowane stałe. Szablon pliku `numbers_test.py`
 do testowania zawartości fikcyjnego pliku `numbers.py`
-zamieszczono poniżej. Pełna dokumentacja modułu `unittest`
+zamieszczono poniżej. Pełną dokumentację modułu `unittest`
 można znaleźć [tutaj](https://docs.python.org/3/library/unittest.html).
 
     ```python
@@ -520,8 +521,7 @@ można znaleźć [tutaj](https://docs.python.org/3/library/unittest.html).
     ```
 
 * Widok kolorów w stylu `(255, 0, 0)` przypomina mi czasy
-butelek z mlekiem za progiem mieszkania, magnetofonów kasetowych
-i 16-kolorowych trybów graficznych. Wśród 16.777.216 barw możemy
+16-kolorowych trybów graficznych. Wśród 16.777.216 barw możemy
 znaleźć ciekawsze. Ja lubię paletę
 [Solarized](https://ethanschoonover.com/solarized/);
 jest też mnogość innych palet.
