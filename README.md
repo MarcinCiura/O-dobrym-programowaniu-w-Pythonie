@@ -22,7 +22,7 @@ która okazała wam dobroć, i podziękujcie jej osobiście.
 
 * Repozytorium nie powinno zawierać zbędnych katalogów
 `__pycache__`, `.idea`, `venv` itp. ani zbędnych plików,
-np. `desktop.ini`.
+np. `desktop.ini`
 
 * Wskazane jest za to dodanie pliku `.gitignore`
 o treści odpowiedniej dla projektów pisanych w Pythonie.
@@ -37,7 +37,7 @@ nie zakładamy pliku `requirements.txt`, jeśli byłby pusty).
 Dzięki temu przez polecenie `pip install -r requirements.txt`
 można je wszystkie naraz zainstalować.
 [Tutaj](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file)
-przykładowa treść pliku `requirements.txt`. Przypuszczam,
+jest przykładowa treść pliku `requirements.txt`. Przypuszczam,
 że w większości Państwa projektów wystarczy wymienić
 nazwy bibliotek bez uściślania ich wersji, np.
     ```
@@ -69,7 +69,7 @@ jest Państwa przyjacielem. Proszę go zainstalować,
 przepuszczać przez niego swój kod
 i poprawiać wskazane przez niego miejsca
 ([punkt 2.1](https://google.github.io/styleguide/pyguide.html#21-lint)).
-Gdyby wszyscy z Państwa słuchali Pylinta,
+Gdyby wszyscy z Państwa słuchali rad Pylinta,
 większość poniższych punktów byłaby niepotrzebna.
 
 * Proszę używać instrukcji `from ... import ...`
@@ -120,7 +120,7 @@ stają się atrybutami instancji klasy.
 * Globalne stałe są natomiast mile widziane,
 a nawet wymagane zamiast magicznych liczb, napisów
 i większych obiektów
-(artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants)) w Wikipedii).
+(artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) w Wikipedii).
 Na przykład zamiast `7` definiujemy stałą
 `BOARD_WIDTH = 7`, zamiast odróżniania kierunku
 przy użyciu zmiennej o wartości `'left'` albo `'right'`
@@ -169,9 +169,9 @@ czyli po naszemu *lambda expressions*,
 Na przykład litera `c` pasuje do pojedynczych znaków (`character`),
 litera `s` do napisów (`string`) itp.
 Jeśli trudno wyczuć, jaka litera pasuje do typu danych,
-można użyć litery `x`.
+można użyć litery `x`, np. `squares = [x**2 for x in collection]`
 
-* Poniżej wzorce i antywzorce instrukcji warunkowych
+* Poniżej podaję wzorce i antywzorce instrukcji warunkowych
 ([punkt 2.14.4](https://google.github.io/styleguide/pyguide.html#2144-decision)
 i [2.8.4](https://google.github.io/styleguide/pyguide.html#284-decision)).
 ```python
@@ -296,7 +296,7 @@ O metodzie `.fetchall()` lepiej zapomnieć.
 
 * Żeby się dowiedzieć, jakie kolumny zwraca `SELECT *`,
 trzeba znaleźć kod tworzący tabelę.
-Dlatego w programach jawnie wymieniamy kolumny po `SELECT`.
+Dlatego w programach należy jawnie wymieniać kolumny po `SELECT`.
 
 * Python to nie C. Poniżej wzorce i antywzorce pętli.
 ```python
@@ -340,7 +340,7 @@ Nie tworzymy osobnych plików
 na małe klasy w stylu `PrzechowywaczMonet`
 tylko po to, żeby później pisać
 `import PrzechowywaczMonet` i
-`przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`.
+`przechowywacz_monet = PrzechowywaczMonet.PrzechowywaczMonet()`
 
 * Python to nie Java, odsłona druga. Zamiast pobieraczy
 (*getters*) i ustawiaczy (*setters*) robiących tylko
@@ -383,14 +383,14 @@ i są wspólne dla wszystkich instancji klasy
 (`self.ham`). Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
 klasy zmienia wartość w trakcie działania programu,
-to prosimy się o kłopoty. Nawet jeśli przewidujemy
+to prosimy się o kłopoty. Nawet gdy przewidujemy
 istnienie podczas działania programu tylko jednej
 instancji klasy (np. `Game`), to przy testowaniu
 zupełnie normalne jest tworzenie jedna po drugiej
 coraz nowszych instancji. Jeśli te instancje
 będą zmieniać wartość współdzielonego atrybutu,
 to może dojść do niepożądanych skutków.
-Zachęcam osoby ciekawe nowości do zapoznania się
+Osoby ciekawe nowości zachęcam do zapoznania się
 z dekoratorem
 [`@dataclasses.dataclass`](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass),
 który jest powiązany z tym zagadnieniem.
@@ -426,12 +426,12 @@ zyskują po zmianie na
 wczytywanie (zapisywanie?!) plików, wystrzeliwanie
 pocisków balistycznych itp. Są to zawsze skutki
 kodu lewitującego poza funkcjami. Taki kod wkładamy
-do funkcji, a te wywołujemy z funkcji `main()`.
+do funkcji, a te wywołujemy z funkcji `main()`
 
 * Na wczytywane z dysku obrazki, fonty, dźwięki itp.
 proponuję założyć plik `assets.py` o poniższej treści.
 W funkcji `main()` należy wywołać funkcję `pygame.init()`,
-a następnie metodę `assets.Assets.load()`.
+a następnie metodę `assets.Assets.load()`
     ```python
     """Zasoby potrzebne do gry."""
 
@@ -451,7 +451,7 @@ a następnie metodę `assets.Assets.load()`.
             ...
     ```
 Podobnie można zgrupować wczytywanie obrazków przez
-`tkinter.PhotoImage`.
+`tkinter.PhotoImage`
 
 * Koniec głównego modułu programu powinien wyglądać
 jak poniżej. Oczywiście nie wszystkie sekcje funkcji `main()`
@@ -540,8 +540,8 @@ niż program, który ma ich za mało.
 * Łatwiej zrozumiemy sprawdzanie wyrażeń logicznych,
 gdy będziemy unikać negacji: zarówno operatora `not`,
 jak wartości o zanegowanym sensie. Na przykład zamiast
-pisać `if not x.is_impossible:` można przerobić program
-i napisać `if x.is_possible:`.
+pisać `if not is_invalid_email(field):` można przerobić program
+i napisać `if x.is_valid_email(field):`
 * Dziedziczenie niepotrzebnie komplikuje programy.
 Łatwiejsze i ogólniejsze jest
 [składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
