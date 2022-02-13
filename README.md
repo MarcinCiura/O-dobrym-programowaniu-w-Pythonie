@@ -92,8 +92,8 @@ bywają bardziej niedorzeczne. Proszę się przyzwyczajać.
 * Można rozdzielać pustymi wierszami sąsiednie sekcje
 złożone z instrukcji `import`. Sekcje powinnny dotyczyć
 kolejno: biblioteki standardowej, bibliotek zewnętrznych
-i naszych własnych modułów. Wewnątrz każdej sekcji nazwy
-pakietów i modułów porządkujemy leksykograficznie
+i naszych własnych modułów. Nazwy plików i modułów
+w każdej sekcji porządkujemy leksykograficznie
 ([punkt 3.13](https://google.github.io/styleguide/pyguide.html#313-imports-formatting)).
 
 * Nie ma przymusu pisania czegokolwiek zaraz po nawiasie
@@ -135,7 +135,7 @@ doszłoby do absurdu, gdybyśmy kiedyś chcieli
 zmienić tło na pomarańczowe. Stałe zwyczajowo
 zapisujemy `WIELKIMI_LITERAMI_Z_PODKREŚLNIKAMI`
 ([punkt 3.16.4](https://google.github.io/styleguide/pyguide.html#3164-guidelines-derived-from-guidos-recommendations)).
-Nie od rzeczy będzie przypomnienie, że XXI wiek
+Nie od rzeczy będzie przypomnieć, że XXI wiek
 trwa już dość długo i w identyfikatorach można swobodnie
 korzystać z polskich liter, jeśli ktoś ma taką ochotę.
 
@@ -226,7 +226,7 @@ Jeśli potrzebne jest dłuższe objaśnienie,
 dodajemy je wewnątrz tego samego napisu,
 oddzielone pustym wierszem.
 
-* Wiersze programu nie powinny być za długie.
+* Wiersze programu nie powinny być zbyt długie.
 Jeśli trzeba je połamać na krótsze kawałki,
 dobrze wiedzieć, że kawałki otoczone dowolnym
 rodzajem nawiasów (`()`, `[]`, `{}`) same się
@@ -250,7 +250,7 @@ operacyjnym, w tym pod Windows.
 * Zamiast sklejać dłuższe ścieżki do plików przez `+`,
 lepiej używać
 [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join),
-bo wtedy nie musimy pamiętać, które kawałki ścieżki
+bo wtedy nie trzeba pamiętać, które kawałki ścieżki
 kończą się na `'/'`, a które nie.
 
 * Wewnątrz `sqlite3.Cursor.execute()` itp.
@@ -351,7 +351,7 @@ obiektu możemy robić z jego atrybutami, co się nam żywnie
 podoba; jest też w porządku, gdy kod poza obiektem
 bezpośrednio odczytuje jego atrybuty; natomiast
 bezpośrednie gmeranie z zewnątrz przy wartościach atrybutów
-jest w złym guście — w tym jednym wypadku warto stosować
+jest w złym guście — tylko w tym wypadku warto stosować
 ustawiacze.
 
 * Jeśli potrzebny jest pobieracz, który robi coś więcej,
@@ -379,7 +379,7 @@ w konstruktorze:
 Atrybuty klas mają wartość początkową nadawaną tylko raz
 i są wspólne dla wszystkich instancji klasy
 (możemy się do nich odwoływać przez `Spam.ham` lub
-`self.ham`), a atrybuty instancji są osobne w każdej instancji
+`self.ham`). Atrybuty instancji są osobne w każdej instancji
 (`self.ham`). Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
 klasy zmienia wartość w trakcie działania programu,
@@ -536,9 +536,35 @@ Po to są moduły, dziedziczenie, metody, funkcje, pętle itp.,
 kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
 [„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
 * Lepszy jest program, który ma za dużo klas,
-niż program, który ma ich za mało.
-* Łatwiej zrozumiemy sprawdzanie wyrażeń logicznych,
-gdy będziemy unikać negacji: zarówno operatora `not`,
+niż program, który ma ich za mało. Oto przykład:
+
+    ```python
+    # LEPIEJ, mimo że kod jest dłuższy:            # GORZEJ, chociaż krócej:
+    # osobne klasy robią osobne rzeczy             # pomieszanie z poplątaniem
+    class DictList:                                class Frobnicator:
+        def __init__(self):                            def __init__(self):
+            self.n2x = []                                  self.n2x = []
+            self.x2n = {}                                  self.x2n = {}
+                                                           [inicjalizacja innych pól]
+        def add(self, x):
+            if x not in self.x2n:                      def frobnicate(self, x):
+                self.x2n[x] = len(self.n2x)                if x not in self.x2n:
+                self.n2x.append(x)                             self.x2n[x] = len(self.n2x)
+            return self.x2n[x]                                 self.n2x.append(x)
+                                                           n = self.x2n[x]
+                                                           [właściwa treść tej metody]
+    class Frobnicator:
+        def __init__(self):
+            self.dictlist = DictList()
+            [inicjalizacja innych pól]
+
+        def frobnicate(self, x):
+            n = self.dictlist(x)
+            [dalsza treść tej metody]
+    ```
+
+* Łatwiej jest zrozumieć sprawdzanie wyrażeń logicznych,
+gdy się unika negacji: zarówno operatora `not`,
 jak wartości o zanegowanym sensie. Na przykład zamiast
 pisać `if not is_invalid_email(field):` można przerobić program
 i napisać `if x.is_valid_email(field):`
@@ -575,7 +601,7 @@ jest testować klasy.
       takie odwołania jak `constants.SpamEnum.HAM` są koszerne).
 * Złe klasy poznajemy po:
     * opisie zawierającym spójnik „i”;
-    * rozłącznych zbiorach metod, które operują
+    * rozłącznych zbiorach metod, które działają
       na rozłącznych zbiorach atrybutów;
     * atrybutach zmienianych z zewnątrz obiektu
       przez bezpośrednie przypisania do obiektu
