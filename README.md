@@ -559,7 +559,7 @@ niż program, który ma ich za mało. Oto przykład:
             [inicjalizacja innych pól]
 
         def frobnicate(self, x):
-            n = self.dictlist(x)
+            n = self.dictlist.add(x)
             [dalsza treść tej metody]
     ```
 
