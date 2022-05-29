@@ -120,7 +120,7 @@ stają się atrybutami instancji klasy.
 * Globalne stałe są natomiast mile widziane,
 a nawet wymagane zamiast magicznych liczb, napisów
 i większych obiektów
-(artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) w Wikipedii).
+(zobacz artykuł [Magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) w Wikipedii).
 Na przykład zamiast `7` definiujemy stałą
 `BOARD_WIDTH = 7`, zamiast odróżniania kierunku
 przy użyciu zmiennej o wartości `'left'` albo `'right'`
@@ -243,7 +243,7 @@ co można mierzyć na różne sposoby:
 Ku przestrodze: artykuł [Mars Climate Orbiter](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy) w Wikipedii.
 
 * Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
-co działa tylko pod Windows, lepiej jest napisać
+co działa tylko pod Windows, lepiej pisać
 `'spam/ham.png'`, co działa pod każdym systemem
 operacyjnym, w tym pod Windows.
 
@@ -262,7 +262,7 @@ Ku pamięci: w sposobach z pytajnikiem parametry
 po stronie Pythona muszą być w krotce lub liście,
 więc kiedy parametr jest jeden, piszemy `(spam,)` lub `[spam]`.
 
-* Z drugiej strony przy zapytaniach z dynamicznymi nazwami kolumn
+* Z drugiej strony w zapytaniach z dynamicznymi nazwami kolumn
 lub z `IN (?, ?,...)` o zmiennej liczbie pytajników
 nie da się obejść bez f-stringów lub `.format()`.
 
@@ -380,7 +380,9 @@ Atrybuty klas mają wartość początkową nadawaną tylko raz
 i są wspólne dla wszystkich instancji klasy
 (możemy się do nich odwoływać przez `Spam.ham` lub
 `self.ham`). Atrybuty instancji są osobne w każdej instancji
-(`self.ham`). Jeśli atrybut klasy jest stałą,
+(`self.ham`).
+
+Jeśli atrybut klasy jest stałą,
 to wszystko jest w porządku. Natomiast jeśli atrybut
 klasy zmienia wartość w trakcie działania programu,
 to prosimy się o kłopoty. Nawet gdy przewidujemy
@@ -563,8 +565,8 @@ niż program, który ma ich za mało. Oto przykład:
             [dalsza treść tej metody]
     ```
 
-* Łatwiej jest zrozumieć sprawdzanie wyrażeń logicznych,
-gdy się unika negacji: zarówno operatora `not`,
+* Łatwiej zrozumieć sprawdzanie wyrażeń logicznych,
+gdy unikamy negacji: zarówno operatora `not`,
 jak wartości o zanegowanym sensie. Na przykład zamiast
 pisać `if not is_invalid_email(field):` można przerobić program
 i napisać `if x.is_valid_email(field):`
@@ -572,7 +574,7 @@ i napisać `if x.is_valid_email(field):`
 Łatwiejsze i ogólniejsze jest
 [składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
 * Dobre konstruktory poznajemy po tym, że tylko
-łączą w całość przekazane mu inne, wcześniej
+łączą w całość przekazane im inne, wcześniej
 skonstruowane obiekty. Dzięki takiemu
 [„wstrzykiwaniu zależności”](https://pl.wikipedia.org/wiki/Wstrzykiwanie_zale%C5%BCno%C5%9Bci)
 (*dependency injection*) znacznie łatwiej
