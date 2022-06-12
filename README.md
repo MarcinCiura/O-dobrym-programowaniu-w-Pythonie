@@ -523,7 +523,8 @@ można znaleźć [tutaj](https://docs.python.org/3/library/unittest.html).
     ```
 
 * Widok kolorów w stylu `(255, 0, 0)` przypomina mi czasy
-16-kolorowych trybów graficznych. Wśród 16.777.216 barw możemy
+magnetofonów kasetowych
+i 16-kolorowych trybów graficznych. Wśród 16.777.216 barw można
 znaleźć ciekawsze. Ja lubię paletę
 [Solarized](https://ethanschoonover.com/solarized/);
 jest też mnogość innych palet.
@@ -569,7 +570,7 @@ niż program, który ma ich za mało. Oto przykład:
 gdy unikamy negacji: zarówno operatora `not`,
 jak wartości o zanegowanym sensie. Na przykład zamiast
 pisać `if not is_invalid_email(field):` można przerobić program
-i napisać `if x.is_valid_email(field):`
+i napisać `if is_valid_email(field):`
 * Dziedziczenie niepotrzebnie komplikuje programy.
 Łatwiejsze i ogólniejsze jest
 [składanie obiektów](https://en.wikipedia.org/wiki/Composition_over_inheritance).
