@@ -14,7 +14,7 @@ Przekazuję niniejszy dokument do domeny publicznej.
 Wolno go zwielokrotniać, zmieniać i rozpowszechniać,
 nawet w celach komercyjnych, bez pytania o zgodę.
 
-Do czytelników, którym przydadzą się poniższe rady,
+Do tych czytelników, którym przydadzą się poniższe rady,
 mam osobistą prośbę: pomyślcie o jakiejś osobie,
 która okazała wam dobroć, i podziękujcie jej osobiście.
 
@@ -26,7 +26,7 @@ np. `desktop.ini`
 
 * Wskazane jest za to dodanie pliku `.gitignore`
 o treści odpowiedniej dla projektów pisanych w Pythonie.
-Osoby, które nie dodały tego pliku przy zakładaniu repozytorium,
+Te osoby, które nie dodały tego pliku przy zakładaniu repozytorium,
 [tutaj](https://github.com/github/gitignore/blob/master/Python.gitignore)
 znajdą odpowiednią treść.
 
@@ -220,8 +220,7 @@ Proszę się zapoznać z zasadami pisania docstringów
 i ich przestrzegać. W skrócie: w pierwszym wierszu
 docstringa wpisujemy zwięzłe zdanie
 opisujące działanie metody lub funkcji, np.
-`"""Zwraca indeks naciśniętego przycisku."""`
-(na końcu zdania stawiamy kropkę).
+`"""Zwraca indeks naciśniętego przycisku"""`.
 Jeśli potrzebne jest dłuższe objaśnienie,
 dodajemy je wewnątrz tego samego napisu,
 oddzielone pustym wierszem.
@@ -243,9 +242,9 @@ co można mierzyć na różne sposoby:
 Ku przestrodze: artykuł [Mars Climate Orbiter](https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#Utrata_sondy) w Wikipedii.
 
 * Zamiast `r'spam\ham.png'` lub `'spam\\ham.png'`,
-co działa tylko pod Windows, lepiej pisać
-`'spam/ham.png'`, co działa pod każdym systemem
-operacyjnym, w tym pod Windows.
+co działa tylko w Windowsach, lepiej pisać
+`'spam/ham.png'`, co działa w każdym systemem
+operacyjnym, w tym w Windowsach.
 
 * Zamiast sklejać dłuższe ścieżki do plików przez `+`,
 lepiej używać
@@ -354,7 +353,7 @@ bezpośrednie gmeranie z zewnątrz przy wartościach atrybutów
 jest w złym guście — tylko w tym wypadku warto stosować
 ustawiacze.
 
-* Jeśli potrzebny jest pobieracz, który robi coś więcej,
+* Jeśli potrzebny jest taki pobieracz, który robi coś więcej,
 pomoże nam dekorator
 [`@property`](https://docs.python.org/3/library/functions.html#property):
 ```python
@@ -364,13 +363,13 @@ pomoże nam dekorator
         return sum(self._spam_list)
 ```
 
-* Proszę odróżniać atrybuty klasy, które inicjalizujemy tak:
+* Proszę odróżniać atrybuty klasy od atrybutów instancji.
+Tak inicjalizujemy atrybuty klasy:
 ```python
     class Spam:
         ham = 42
 ```
-od atrybutów instancji, które inicjalizujemy
-w konstruktorze:
+Atrybuty instancji inicjalizujemy w konstruktorze:
 ```python
     class Spam:
         def __init__(self):
@@ -538,7 +537,7 @@ Po to są moduły, dziedziczenie, metody, funkcje, pętle itp.,
 żeby z nich korzystać. W łagodniejszych przypadkach,
 kiedy po wklejeniu trzeba coś pozmieniać, można stosować zasadę
 [„do trzech razy sztuka”](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
-* Lepszy jest program, który ma za dużo klas,
+* Lepszy jest taki program, który ma za dużo klas,
 niż program, który ma ich za mało. Oto przykład:
 
     ```python
@@ -583,12 +582,12 @@ jest testować klasy.
 * Złe konstruktory poznajemy po:
     * wywołaniach innych konstruktorów
       (`super().__init__()` jest OK);
-    * wywołaniach funkcji, które zmieniają globalny
+    * wywołaniach takich funkcji, które zmieniają globalny
       stan programu;
     * instrukcjach warunkowych lub pętlach;
     * inicjalizacji atrybutów bardziej skomplikowanej
       niż zwykłe przypisania;
-    * tworzeniu obiektu, który potem trzeba jeszcze
+    * tworzeniu takiego obiektu, który potem trzeba jeszcze
       doinicjować inną metodą;
     * dziwnych obejściach, nie korzystających z metody
       `__init__()` po to, żeby móc zwracać kod błędu.
